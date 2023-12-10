@@ -7,8 +7,8 @@ export default function login(){
 
 
     return (
-        <div className="md:flex">
-            <div className="md:basis-1/2">
+        <div className="md:flex justify-center">
+            <div className="w-1/2">
                 <div className="h-screen flex flex-col justify-center items-center">
                 <p className="text-black text-3xl font-semibold tracking-wide mb-4">
                     YOUR ACCOUNT FOR
@@ -32,9 +32,9 @@ export default function login(){
                         >Email</label
                     >
                     </div>
-                    <p  id="outlined_error_help" className="mt-2 text-xs text-red-600">
+                    {/* <p  id="outlined_error_help" className="mt-2 text-xs text-red-600">
                     <span className="font-medium">Oh, snapp!</span> Some error message.
-                    </p>
+                    </p> */}
                 </div>
 
                 <div className="mb-4">
@@ -52,9 +52,9 @@ export default function login(){
                         >password</label
                     >
                     </div>
-                    <p  id="outlined_error_help" className="mt-2 text-xs text-red-600">
+                    {/* <p  id="outlined_error_help" className="mt-2 text-xs text-red-600">
                     <span className="font-medium">Oh, snapp!</span> Some error message.
-                    </p>
+                    </p> */}
                 </div>
 
                 <div className="flex items-center justify-between my-10">
@@ -75,10 +75,10 @@ export default function login(){
                     <a href="" className="text-black hover:underline">
                     Forgot password
                     </a>
-                </div>
+                </div>  
                     <button
                         type="submit"
-                        className="btn btn-info w-full text-white bg-[#2674B4] text-3xl"
+                        className="btn btn-info w-full text-xl bg-blue-600 font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                     >
                         Sign in
                     </button>
@@ -91,7 +91,7 @@ export default function login(){
 
                 </div>
             </div>
-            <div className="hidden basis-1/2 md:flex items-center md:visible">
+            {/* <div className="hidden basis-1/2 md:flex items-center md:visible">
                 <Image
                     src={loginPicture}
                     className="max-h-screen w-full"
@@ -107,7 +107,7 @@ export default function login(){
                     placeholder="blur" // Optional blur-up while loading
                 />
            
-            </div>
+            </div> */}
         </div>
     );
 }
