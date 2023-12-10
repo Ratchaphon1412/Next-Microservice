@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { loadPosts } from '@/lib/useApi'
-import FirstLanding from '@/components/Landing/first-section'
+import FirstSection from '@/components/Landing/first/first-section'
+import SecondSection from '@/components/Landing/second/second-section'
 
 export default async function Home() {
 
@@ -12,8 +13,10 @@ export default async function Home() {
     //     <li>{post.id}</li>
     //   ))}
     // </ul>
-
-    <FirstLanding />
+    <main>
+      <FirstSection />
+      <SecondSection />
+    </main>
     
   )
 }
