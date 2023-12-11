@@ -1,6 +1,6 @@
 import Logo from '@/components/logo';
 import VideoIntro from '@/components/videointro';
-
+import SongIntro from '@/components/songintro';
 
 export default function Component() {
 
@@ -90,9 +90,10 @@ export default function Component() {
         videoPath="https://firebasestorage.googleapis.com/v0/b/pixel-man-97cb5.appspot.com/o/MainLandingVideo-Pixel-Man.mp4?alt=media&token=d0b5e150-bba9-46ea-9127-6a4bb19088e4"
         speedVideo={speedVideo}
       />
+      
 
       <div
-        className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden"
+        className="absolute top-0 right-0 bottom-0 left-0 w-full h-screen overflow-hidden"
         style={stylelogo}
       >
         <div className="flex justify-center items-center h-full">
@@ -104,8 +105,10 @@ export default function Component() {
             >
               Pixel Man
             </h1>
+            
             <Logo class="h-12" />
           </div>
+         
         </div>
       </div>
     </div>
