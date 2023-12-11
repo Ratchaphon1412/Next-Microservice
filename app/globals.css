@@ -43,3 +43,33 @@ body {
   width: 100%;
   object-fit: cover;
 }
+
+@font-face {
+  font-family: "Pixellet";
+  src: url("/assets/fonts/pixellet/pixellet.ttf");
+}
+
+@font-face {
+  font-family: "PixelletMedium";
+  src: url("/assets/fonts/pixellet/pixelletMedium.ttf");
+}
+
+@font-face {
+  font-family: "PixelletBold";
+  src: url("/assets/fonts/pixellet/pixelletbold.ttf");
+}
+
+@font-face {
+  font-family: "PixelletItalic";
+  src: url("/assets/fonts/pixellet/pixelletitalic.ttf");
+}
+
+@font-face {
+  font-family: "PixelletBoldItalic";
+  src: url("/assets/fonts/pixellet/pixelletbolditalic.ttf");
+}
+
+@font-face {
+  font-family: "PixelletCircle";
+  src: url("/assets/fonts/pixellet/pixelletcircle.ttf");
+}
