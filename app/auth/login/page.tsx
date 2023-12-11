@@ -7,15 +7,18 @@ export default function login(){
 
 
     return (
-        <div className="md:flex justify-center">
+        <div className="md:flex justify-center bg-black">
             <div className="w-1/2">
                 <div className="h-screen flex flex-col justify-center items-center">
-                <p className="text-black text-3xl font-semibold tracking-wide mb-4">
-                    YOUR ACCOUNT FOR
+                <p className="text-center text-white text-3xl font-semibold tracking-wide mb-4">
+                 
+
+                 YOUR ACCOUNT FOR
                     <br />
-                    EVERYTHING MINNY.
+                    EVERYTHING <span className="">PI</span><span>XE</span><span>L M</span><span>AN.</span>
+                 
                 </p>
-                <p className="text-xs mb-16 font-semibold tracking-wide">Welcome back!</p>
+                <p className="text-xs mb-16 font-semibold tracking-wide text-white">Welcome back!</p>
                 <form className="w-[60%]">
                 <div className="mb-4">
                     <div className="relative">
@@ -23,14 +26,14 @@ export default function login(){
                         type="text"
                         id="floating_outlined"
                         v-model="email"
-                        className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                        className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-white bg-transparent rounded-lg border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                         placeholder=""
                     />
                     <label
                         htmlFor="floating_outlined"
-                        className="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                        className="absolute text-sm text-gray-300 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0]  px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
                         >Email</label
-                    >
+            >
                     </div>
                     {/* <p  id="outlined_error_help" className="mt-2 text-xs text-red-600">
                     <span className="font-medium">Oh, snapp!</span> Some error message.
@@ -43,12 +46,12 @@ export default function login(){
                         type="password"
                         id="floating_outlined"
                      
-                        className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                        className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-white bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                         placeholder=" "
                     />
                     <label
                         htmlFor="floating_outlined"
-                        className="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                        className="absolute text-sm text-gray-300 duration-300  transform -translate-y-4 scale-75 top-2 z-10 origin-[0]  px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
                         >password</label
                     >
                     </div>
@@ -67,25 +70,25 @@ export default function login(){
                     />
                     <label
                         htmlFor="link-checkbox"
-                        className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                        className="ml-2 text-sm font-medium text-gray-300"
                     >
                         Remember me</label>
                     </div>
 
-                    <a href="/auth/forget" className="text-black hover:underline">
+                    <a href="/auth/forget" className="text-white text-sm font-medium hover:underline">
                     Forgot password
                     </a>
                 </div>  
                     <button
                         type="submit"
-                        className="btn btn-info w-full text-xl bg-blue-600 font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                        className="btn btn-info w-full text-xl hover:bg-amber-600 bg-amber-400 font-semibold text-white shadow-sm transition-all duration-150  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                     >
                         Sign in
                     </button>
                 </form>
                     <p className="mt-4">
                     Don't have an account?
-                    <a href="/register" className="text-[#2674B4]"
+                    <a href="/register" className="text-[#2674B4]  font-semibold hover:underline"
                         > Sign up for free!</a>
                     </p>
 
