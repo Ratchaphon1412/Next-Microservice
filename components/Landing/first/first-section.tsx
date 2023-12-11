@@ -1,117 +1,65 @@
-import Logo from '@/components/logo';
-import VideoIntro from '@/components/videointro';
-import SongIntro from '@/components/songintro';
+"use client";
+import Logo from "@/components/logo";
+import VideoIntro from "@/components/videointro";
+import SongIntro from "@/components/songintro";
+import { useLayoutEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function Component() {
-
   const stylelogo = {
-    backgroundColor: 'rgba(0, 0, 0, 0.3)'
+    backgroundColor: "rgba(0, 0, 0, 0.3)",
   };
-  const speedVideo =2.5;
+  const speedVideo = 2.5;
+
+  const root = useRef(null);
+
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    let ctx = gsap.context(() => {
+      gsap.to(".video1", {
+        y: 300, // Translate by 300 pixels vertically
+        duration: 1,
+        ease: "power1.inOut",
+        scrollTrigger: {
+          trigger: root.current,
+          start: "top top", // Adjust as needed based on when you want the animation to start
+          end: "bottom+=300 center",
+          scrub: true, // Smoothing effect when scrolling
+        },
+      });
+    }, root);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    // <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 via-transparent to-transparent pb-12 pt-20 sm:pb-16 sm:pt-32 lg:pb-24 xl:pb-32 xl:pt-40">
-    //   <div className="relative z-10">
-    //     <div className="absolute inset-x-0 top-1/2 -z-10 flex -translate-y-1/2 justify-center overflow-hidden [mask-image:radial-gradient(50%_45%_at_50%_55%,white,transparent)]">
-    //       <svg
-    //         className="h-[60rem] w-[100rem] flex-none stroke-blue-600 opacity-20"
-    //         aria-hidden="true"
-    //       >
-    //         <defs>
-    //           <pattern
-    //             id="e9033f3e-f665-41a6-84ef-756f6778e6fe"
-    //             width="200"
-    //             height="200"
-    //             x="50%"
-    //             y="50%"
-    //             patternUnits="userSpaceOnUse"
-    //             patternTransform="translate(-100 0)"
-    //           >
-    //             <path d="M.5 200V.5H200" fill="none"></path>
-    //           </pattern>
-    //         </defs>
-    //         <svg x="50%" y="50%" className="overflow-visible fill-blue-50">
-    //           <path
-    //             d="M-300 0h201v201h-201Z M300 200h201v201h-201Z"
-    //             strokeWidth="0"
-    //           ></path>
-    //         </svg>
-    //         <rect
-    //           width="100%"
-    //           height="100%"
-    //           strokeWidth="0"
-    //           fill="url(#e9033f3e-f665-41a6-84ef-756f6778e6fe)"
-    //         ></rect>
-    //       </svg>
-    //     </div>
-    //   </div>
-    //   <div className="relative z-20 mx-auto max-w-7xl px-6 lg:px-8">
-    //     <div className="mx-auto max-w-2xl text-center">
-    //       <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-    //         Refreshingly Sustainable:
-    //         <span className="text-blue-600">Boxed Water</span>
-    //       </h1>
-    //       <h2 className="mt-6 text-lg leading-8 text-gray-600">
-    //         Choose a more eco-friendly way to hydrate with our 100% recyclable
-    //         cartons.
-    //       </h2>
-    //       <div className="mt-10 flex items-center justify-center gap-x-6">
-    //         <a
-    //           className="isomorphic-link isomorphic-link--internal inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-    //           href="/login"
-    //         >
-    //           Shop Now
-    //           <svg
-    //             xmlns="http://www.w3.org/2000/svg"
-    //             className="h-4 w-4"
-    //             viewBox="0 0 20 20"
-    //             fill="currentColor"
-    //           >
-    //             <path
-    //               fillRule="evenodd"
-    //               d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-    //               clipRule="evenodd"
-    //             ></path>
-    //           </svg>
-    //         </a>
-    //       </div>
-    //     </div>
-    //     <div className="relative mx-auto mt-10 max-w-lg">
-    //       <img
-    //         className="w-full rounded-2xl border border-gray-100 shadow"
-    //         src="https://images.unsplash.com/photo-1587502536575-6dfba0a6e017"
-    //         alt=""
-    //       />
-    //     </div>
-    //   </div>
-    // </section>
-    <section className="overflow-hidden">
-    <div className="ิrelative overflow-hidden w-full h-screen pallarax">
-      <VideoIntro
-        videoPath="/assets/video/MainLandingVideo-Pixel-Man.mp4"
-        speedVideo={speedVideo}
-      />
-      
+    <section
+      ref={root}
+      className="relative h-screen overflow-y-hidden overflow-x-hidden"
+    >
+      <div className="h-full w-full object-cover object-cover video1">
+        <VideoIntro
+          videoPath="/assets/video/MainLandingVideo-Pixel-Man.mp4"
+          speedVideo={speedVideo}
+        />
+      </div>
 
       <div
-        className="absolute top-0 right-0 bottom-0 left-0 w-full h-screen overflow-hidden"
+        className="absolute top-0 right-0 bottom-0 left-0 w-full h-auto "
         style={stylelogo}
       >
         <div className="flex justify-center items-center h-full">
-          <div
-            className="text-center text-white px-8 md:px-12 lg:w-1/2 md:w-2/3 sm:w-2/3 xs:w-2/3"
-          >
-            <h1
-              className="md:text-4xl text-3xl font-xs font-pixelletMedium tracking-tight mb-6"
-            >
+          <div className="text-center text-white px-8 md:px-12 lg:w-1/2 md:w-2/3 sm:w-2/3 xs:w-2/3">
+            <h1 className="md:text-4xl text-3xl font-xs font-pixelletMedium tracking-tight mb-6">
               Pixel Man
             </h1>
-            
+
             <Logo class="h-12" />
           </div>
-         
         </div>
       </div>
-    </div>
-  </section>
+    </section>
   );
 }

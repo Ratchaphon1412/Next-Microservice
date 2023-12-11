@@ -10,18 +10,12 @@ export default async function Home() {
   // const posts = await loadPosts()
 
   return (
-    // <ul>
-    //   {posts.map((post) => (
-    //     <li>{post.id}</li>
-    //   ))}
-    // </ul>
     <main>
       <FirstSection />
       <SecondSection />
       <ThirdSection />
       <FourthSection />
     </main>
-    
   )
 }
 
