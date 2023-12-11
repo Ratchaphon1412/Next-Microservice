@@ -85,7 +85,7 @@ export default function Component() {
     //   </div>
     // </section>
     <section className="overflow-hidden">
-    <div className="relative overflow-hidden w-full h-screen pallarax">
+    <div className="relative overflow-hidden w-full h-full pallarax">
       <VideoIntro
         videoPath="https://firebasestorage.googleapis.com/v0/b/pixel-man-97cb5.appspot.com/o/MainLandingVideo-Pixel-Man.mp4?alt=media&token=d0b5e150-bba9-46ea-9127-6a4bb19088e4"
         speedVideo={speedVideo}
