@@ -47,11 +47,11 @@ export default function Component() {
         </div>
        
         <div className=" flex-1 flex flex-col min-[1280px]:pl-64 pl-4">
-          <p className="text-[100px] text-white">
+          <p className="text-6xl font-pixelletMedium text-white">
             DISCOVER <br /> OUR <br />
             COLLECTION
           </p>
-          <a href="" className="text-[30px] text-gray-50">
+          <a href="" className="text-2xl text-gray-50 font-pixelletMedium mt-4">
               <p>see more</p>
           </a>
         </div>
