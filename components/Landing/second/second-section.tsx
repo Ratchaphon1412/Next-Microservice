@@ -5,8 +5,8 @@ export default function Component() {
 
   // image use next image
   return (
-    <div className="min-h-screen bg-black">
-      <div className="relative z-10">
+    <div className="min-h-screen bg-black flex items-center relative">
+      <div className="absolute z-10 w-full h-full">
         <div className="absolute inset-x-0 top-1/2 -z-10 flex -translate-y-1/2 justify-center overflow-hidden [mask-image:radial-gradient(50%_45%_at_50%_55%,white,transparent)]">
           <svg
             className="h-[60rem] w-[100rem] flex-none stroke-blue-600 opacity-20"
@@ -41,7 +41,7 @@ export default function Component() {
         </div>
       </div>
 
-      <div className="h-full w-full pt-32 flex items-center relative z-20">
+      <div className="h-full w-full flex items-center relative z-20">
         <div className=" flex-1 justify-center">
           <SlideShow></SlideShow>
         </div>
