@@ -1,4 +1,4 @@
-'use client'
+
 export default function Component({
   callBack,
   slideNum,
@@ -14,7 +14,7 @@ export default function Component({
       href={`#slide${slideNum}`}
       className="btn btn-circle text-xl"
     >
-      {direction}
+      {direction} 
     </a>
   );
 }

@@ -1,100 +1,60 @@
-"use client";
 
-import { useState, useEffect } from "react";
-import Button from "@/components/Landing/second/button";
-import Card from "@/components/Landing/second/card";
+import SlideShow from "@/components/Landing/second/slideShow"
 
 export default function Component() {
-  const [slide, setSlide] = useState(1);
-  const [width, setWidth] = useState(0);
-  const [height, setHeight] = useState(0);
-
-  useEffect(() => {
-    setWidth(window.innerWidth);
-    setHeight(window.innerHeight);
-
-    window.addEventListener("resize", () => {
-      setWidth(window.innerWidth);
-      setHeight(window.innerHeight);
-    });
-
-    return () => window.removeEventListener("resize", () => {
-      setWidth(window.innerWidth);
-      setHeight(window.innerHeight);
-    });
-
-  }, []);
-
-  // fix prev and next bug
-  function prevButton() {
-    if (slide <= 1) {
-      setSlide(1);
-      return;
-    }
-
-    if (width > 1280) {
-      setSlide(slide - 3);
-    } else {
-      setSlide(slide - 1);
-    }
-  }
-
-  function nextButton() {
-    if (slide >= 5) {
-      setSlide(5);
-      return;
-    }
-
-    if (width > 1280) {
-      setSlide(slide + 3);
-    } else {
-      setSlide(slide + 1);
-    }
-  }
 
   // image use next image
   return (
-    <div className="w-screen min-h-screen items-center flex flex-col justify-center max-[1280px]:px-32 px-4">
-      <div>DISCOVER OUR COLLECTION</div>
-      <div className="flex items-center justify-center">
-        <Button callBack={prevButton} slideNum={slide} direction="<"></Button>
-        <div className="w-full h-full carousel rounded-box gap-2">
-          <div
-            id="slide1"
-            className="carousel-item h-[400px] max-[1280px]:w-full w-1/3 card card-compact bg-base-100"
+    <div className="min-h-screen">
+      <div className="relative z-10">
+        <div className="absolute inset-x-0 top-1/2 -z-10 flex -translate-y-1/2 justify-center overflow-hidden [mask-image:radial-gradient(50%_45%_at_50%_55%,white,transparent)]">
+          <svg
+            className="h-[60rem] w-[100rem] flex-none stroke-blue-600 opacity-20"
+            aria-hidden="true"
           >
-            <Card imageSrc="https://daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.jpg"></Card>
-          </div>
-
-          <div
-            id="slide2"
-            className="carousel-item h-[400px] max-[1280px]:w-full w-1/3 card card-compact bg-base-100 "
-          >
-            <Card imageSrc="https://daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.jpg"></Card>
-          </div>
-
-          <div
-            id="slide3"
-            className="carousel-item h-[400px] max-[1280px]:w-full w-1/3 card card-compact bg-base-100 "
-          >
-            <Card imageSrc="https://daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.jpg"></Card>
-          </div>
-
-          <div
-            id="slide4"
-            className="carousel-item h-[400px] max-[1280px]:w-full w-1/3 card card-compact bg-base-100 "
-          >
-            <Card imageSrc="https://daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg"></Card>
-          </div>
-
-          <div
-            id="slide5"
-            className="carousel-item h-[400px] max-[1280px]:w-full w-1/3 card card-compact bg-base-100 "
-          >
-            <Card imageSrc="https://daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.jpg"></Card>
-          </div>
+            <defs>
+              <pattern
+                id="e9033f3e-f665-41a6-84ef-756f6778e6fe"
+                width="200"
+                height="200"
+                x="50%"
+                y="50%"
+                patternUnits="userSpaceOnUse"
+                patternTransform="translate(-100 0)"
+              >
+                <path d="M.5 200V.5H200" fill="none"></path>
+              </pattern>
+            </defs>
+            <svg x="50%" y="50%" className="overflow-visible fill-blue-50">
+              <path
+                d="M-300 0h201v201h-201Z M300 200h201v201h-201Z"
+                strokeWidth="0"
+              ></path>
+            </svg>
+            <rect
+              width="100%"
+              height="100%"
+              strokeWidth="0"
+              fill="url(#e9033f3e-f665-41a6-84ef-756f6778e6fe)"
+            ></rect>
+          </svg>
         </div>
-        <Button callBack={nextButton} slideNum={slide} direction=">"></Button>
+      </div>
+
+      <div className="h-full w-full mt-32 flex items-center relative z-20">
+        <div className=" flex-1 justify-center">
+          <SlideShow></SlideShow>
+        </div>
+       
+        <div className=" flex-1 flex flex-col pl-64 min-[1280px]:pl-64 pl-4">
+          <p className="text-[100px]">
+            DISCOVER <br /> OUR <br />
+            COLLECTION
+          </p>
+          <a href="" className="text-[30px]">
+              <p>see more</p>
+          </a>
+        </div>
       </div>
     </div>
   );
