@@ -72,7 +72,7 @@ export default function login(){
                         Remember me</label>
                     </div>
 
-                    <a href="" className="text-black hover:underline">
+                    <a href="/auth/forget" className="text-black hover:underline">
                     Forgot password
                     </a>
                 </div>  
