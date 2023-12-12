@@ -29,7 +29,7 @@ export default function Component() {
       });
 
       gsap.to(".cursor1", {
-        y: 70, // Translate by 300 pixels vertically
+        y: 0, // Translate by 300 pixels vertically
         x: 0,
         duration: 0.001,
         opacity: 1,
@@ -37,13 +37,13 @@ export default function Component() {
         scrollTrigger: {
           trigger: root.current,
           start: "top center", // Adjust as needed based on when you want the animation to start
-          end: "center center",
+          end: "center-=200 top",
           scrub: true, // Smoothing effect when scrolling
         },
       });
 
       gsap.to(".button1", {
-        y: 50, // Translate by 300 pixels vertically
+        y: 30, // Translate by 300 pixels vertically
         x: 0,
         duration: 0.001,
         opacity: 1,
@@ -51,9 +51,8 @@ export default function Component() {
         scrollTrigger: {
           trigger: root.current,
           start: "top center", // Adjust as needed based on when you want the animation to start
-          end: "center center",
+          end: "center-=200 top",
           scrub: true, // Smoothing effect when scrolling
-
           //   end: () => {
           //     if (leftText.current) {
           //       const rect = leftText.current.getBoundingClientRect();
@@ -69,7 +68,7 @@ export default function Component() {
 
   return (
     <section
-      className="w-full bg-black flex justify-center h-[0px] min-[1440px]:h-screen"
+      className="w-full bg-black flex justify-center h-[0px] min-[1440px]:h-screen items-center"
       ref={root}
     >
       <div

@@ -1,7 +1,7 @@
 "use client";
-import Logo from "@/components/logo";
-import VideoIntro from "@/components/videointro";
-import SongIntro from "@/components/songintro";
+import Logo from "@/app/components/logo";
+import VideoIntro from "@/app/components/videointro";
+import SongIntro from "@/app/components/songintro";
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";

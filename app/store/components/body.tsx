@@ -1,5 +1,5 @@
-import Card from '@/components/Store/showcase/card'
-import Paginate from '@/components/Store/showcase/paginate'
+import Card from '@/app/store/components/card'
+import Paginate from '@/app/store/components/paginate'
 
 export default function Components(){
 

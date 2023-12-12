@@ -1,5 +1,5 @@
 
-import SlideShow from "@/components/Landing/second/slideShow"
+import SlideShow from "@/app/components/slideShow"
 
 export default function Component() {
 

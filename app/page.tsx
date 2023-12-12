@@ -1,14 +1,12 @@
 import Image from 'next/image'
 // import { loadPosts } from '@/lib/useApi'
-import FirstSection from '@/components/Landing/first/first-section'
-import SecondSection from '@/components/Landing/second/second-section'
-import SecondSection2 from '@/components/Landing/second/second-section2'
-import ThirdSection from '@/components/Landing/third/sign-up'
-import FourthSection from '@/components/Landing/fourth/fourth-section'
+import FirstSection from '@/app/components/first-section'
+import SecondSection from '@/app/components/second-section'
+import SecondSection2 from '@/app/components/second-section2'
+import ThirdSection from '@/app/components/sign-up'
+import FourthSection from '@/app/components/fourth-section'
 
 export default async function Home() {
-
-  // const posts = await loadPosts()
 
   return (
     <main>

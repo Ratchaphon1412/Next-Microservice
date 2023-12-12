@@ -1,5 +1,5 @@
-import CartButton from "@/components/Store/showcase/cartButton";
-import ViewButton from "@/components/Store/showcase/viewButton";
+import CartButton from "@/app/store/components/cartButton";
+import ViewButton from "@/app/store/components/viewButton";
 export default function Components() {
   return (
     // <div classNameNameName="overflow-hidden bg-white h-48 w-full place-self-center rounded-md hover:h-[32rem] duration-500">

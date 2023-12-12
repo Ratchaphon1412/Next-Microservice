@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import Panel from '@/components/Store/panel/body'
-import Showcase from '@/components/Store/showcase/body'
+import Panel from '@/app/store/components/side'
+import Showcase from '@/app/store/components/body'
 
 export default function Home() {
 

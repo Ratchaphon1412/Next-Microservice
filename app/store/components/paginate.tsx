@@ -1,5 +1,5 @@
-import LeftButton from '@/components/Store/showcase/leftButton'
-import RightButton from '@/components/Store/showcase/rightButton'
+import LeftButton from '@/app/store/components/leftButton'
+import RightButton from '@/app/store/components/rightButton'
 
 export default function Components(){
 

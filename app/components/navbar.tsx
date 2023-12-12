@@ -1,4 +1,4 @@
-import Logo from '@/components/logo';
+import Logo from '@/app/components/logo';
 
 export default function component() {
     return (
