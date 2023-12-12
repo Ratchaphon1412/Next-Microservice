@@ -2,7 +2,7 @@
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+
 
 export default function Component() {
   const root = useRef(null);
@@ -11,9 +11,11 @@ export default function Component() {
   const img3 = useRef<HTMLImageElement>(null);
   const img4 = useRef<HTMLImageElement>(null);
 
+
   useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
     let ctx = gsap.context(() => {
-      gsap.set(".image1", { y: -300, opacity: 0.5 });
+      gsap.set(".image1", { y: -200, opacity: 0.5 });
       gsap.set(".image2", { y: -100, x: 100, opacity: 0.5 });
       gsap.set(".image3", { x: -250, opacity: 0.5 });
       gsap.set(".image4", { y: 100, opacity: 0.5 });
