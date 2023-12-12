@@ -16,7 +16,7 @@ export default function Component() {
       gsap.set(".button1", { opacity: 0, y: -150 });
 
       gsap.to(".movetext1", {
-        y: -200, // Translate by 300 pixels vertically
+        y: -70, // Translate by 300 pixels vertically
         duration: 0.01,
         opacity: 1,
         color: "white",
@@ -29,7 +29,7 @@ export default function Component() {
       });
 
       gsap.to(".cursor1", {
-        y: 120, // Translate by 300 pixels vertically
+        y: 70, // Translate by 300 pixels vertically
         x: 0,
         duration: 0.001,
         opacity: 1,
@@ -43,7 +43,7 @@ export default function Component() {
       });
 
       gsap.to(".button1", {
-        y: 100, // Translate by 300 pixels vertically
+        y: 50, // Translate by 300 pixels vertically
         x: 0,
         duration: 0.001,
         opacity: 1,
@@ -69,22 +69,22 @@ export default function Component() {
 
   return (
     <section
-      className="w-full h-screen bg-black flex justify-center"
+      className="w-full bg-black flex justify-center h-[0px] min-[1440px]:h-screen"
       ref={root}
     >
       <div
         ref={leftText}
-        className="flex-1 px-4 text-[130px] font-pixelletMedium movetext1"
+        className="flex-1 px-4  min-[1440px]:text-[70px] text-[0px] pt-32 font-pixelletMedium movetext1"
       >
         Pixel Man Where Every Click Creates a
         <p className="text-amber-400">Masterpiece!</p>
       </div>
       <div className="flex-1 flex h-full flex-col justify-center items-center">
-        <a href="/auth/login" className="w-1/3 bg-amber-400 rounded py-4 px-4 text-[50px] font-pixelletMedium button1">
+        <a href="/auth/login" className="w-1/3 bg-amber-400 rounded py-4 px-4 min-[1440px]:text-[30px] min-[1440px]:visible invisible text-[0px] font-pixelletMedium button1">
           Click Now!
         </a>
         <div className="cursor1">
-          <img className="w-[200px] " src="./assets/images/cursor.png" alt="" />
+          <img className="min-[1440px]:w-[100px] min-[1440px]:visible invisible w-[0px] " src="./assets/images/cursor.png" alt="" />
         </div>
       </div>
     </section>
