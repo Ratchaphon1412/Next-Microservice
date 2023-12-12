@@ -39,7 +39,7 @@ export default function Component() {
       ref={root}
       className="relative h-screen overflow-y-hidden overflow-x-hidden"
     >
-      <div className="h-full w-full object-cover object-cover video1">
+      <div className="h-full w-full  object-cover video1">
         <VideoIntro
           videoPath="/assets/video/MainLandingVideo-Pixel-Man.mp4"
           speedVideo={speedVideo}
