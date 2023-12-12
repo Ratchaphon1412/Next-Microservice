@@ -1,9 +1,9 @@
 export default function RegisterPage() {
     return (
-        <div className="md:flex justify-center items-center">
-            <div className="md:basis-1/2 bg-white">
+        <div className="md:flex justify-center items-center bg-black">
+            <div className="md:basis-1/2">
                 <div className="h-screen flex flex-col justify-center items-center">
-                    <p className="text-black text-3xl font-semibold tracking-wide mb-10">
+                    <p className="text-white text-3xl font-semibold tracking-wide mb-10">
                     LET'S GET YOU STARTED
                     </p>
                     
@@ -14,7 +14,7 @@ export default function RegisterPage() {
                                     type="text"
                                     id="floating_outlined"
                                     v-model="fullname"
-                                    className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                    className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-white bg-transparent rounded-lg border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                     placeholder=""
                                 />
                                 <label
