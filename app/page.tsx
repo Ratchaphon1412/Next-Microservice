@@ -6,6 +6,7 @@ import SecondSection2 from '@/app/components/second-section2'
 import ThirdSection from '@/app/components/sign-up'
 import FourthSection from '@/app/components/fourth-section'
 import FifthSection from '@/app/components/clip-path'
+import SixthSection from '@/app/components/horizontal'
 
 export default async function Home() {
 
@@ -17,6 +18,7 @@ export default async function Home() {
       <ThirdSection />
       <FourthSection />
       <FifthSection />
+      <SixthSection />
     </main>
   )
 }

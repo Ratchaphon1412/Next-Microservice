@@ -18,9 +18,8 @@ export default function ClipPath() {
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: root.current,
-                    duration: 0.01,
                     start: 'top top',
-                    end: '+=2500',
+                    end: '+=850',
                     scrub: true,
                     pin: true,
                 }

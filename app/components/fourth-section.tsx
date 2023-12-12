@@ -65,33 +65,33 @@ export default function Component() {
   }, []);
 
   return (
-    <section className="py-48 bg-black flex flex-col justify-center" ref={root}>
+    <section className="py-48 bg-black flex flex-col justify-center h-[0px] min-[1440px]:h-full" ref={root}>
       <div className="grid grid-cols-2 gap-10 max-w-6xl mx-auto">
         <div className="-mt-20 flex justify-end image1">
           <img
             ref={img1}
-            className="w-2/3 h-2/3 object-cover rounded-lg overflow-hidden"
+            className="w-2/3 h-2/3 object-cover rounded-lg overflow-hidden min-[1440px]:visible invisible"
             src="https://images.unsplash.com/photo-1616486788371-62d930495c44?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80"
           />
         </div>
         <div className="flex justify-start image2">
           <img
             ref={img2}
-            className="rounded-lg object-cover overflow-hidden"
+            className="rounded-lg object-cover overflow-hidden min-[1440px]:visible invisible"
             src="https://images.unsplash.com/photo-1640020580603-e7beafd75d94?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
           />
         </div>
         <div className="-mt-64 flex justify-start image3">
           <img
             ref={img3}
-            className="rounded-lg object-cover overflow-hidden"
+            className="rounded-lg object-cover overflow-hidden min-[1440px]:visible invisible"
             src="https://images.unsplash.com/photo-1533557950217-8768f2ee7491?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
           />
         </div>
         <div className="flex justify-start image4">
           <img
             ref={img4}
-            className="w-2/3 h-2/3 object-cover rounded-lg overflow-hidden"
+            className="w-2/3 h-2/3 object-cover rounded-lg overflow-hidden min-[1440px]:visible invisible"
             src="https://images.unsplash.com/photo-1620371350502-999e9a7d80a4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=670&q=80"
           />
         </div>
