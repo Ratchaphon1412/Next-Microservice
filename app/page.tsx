@@ -1,23 +1,21 @@
-import Image from 'next/image'
+import Image from "next/image";
 // import { loadPosts } from '@/lib/useApi'
-import FirstSection from '@/app/components/first-section'
-import SecondSection from '@/app/components/second-section'
-import SecondSection2 from '@/app/components/second-section2'
-import ThirdSection from '@/app/components/sign-up'
-import FourthSection from '@/app/components/fourth-section'
-import FifthSection from '@/app/components/clip-path'
+import FirstSection from "@/app/components/first-section";
+import SecondSection from "@/app/components/second-section";
+import SecondSection2 from "@/app/components/second-section2";
+import ThirdSection from "@/app/components/sign-up";
+import FourthSection from "@/app/components/fourth-section";
+import FifthSection from "@/app/components/clip-path";
 
 export default async function Home() {
-
   return (
-    <main className='overflow-hidden'>
+    <main className="overflow-hidden">
       <FirstSection />
-      <SecondSection />
-      <SecondSection2 />
-      <ThirdSection />
-      <FourthSection />
-      <FifthSection />
+      {/* <SecondSection /> */}
+      {/* <SecondSection2 /> */}
+      {/* <ThirdSection /> */}
+      {/* <FourthSection /> */}
+      {/* <FifthSection /> */}
     </main>
-  )
+  );
 }
-
