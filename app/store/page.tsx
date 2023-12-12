@@ -6,7 +6,7 @@ export default function Home() {
 
 
     return(
-        <div className='flex p-16 mt-12 justify-center'>
+        <div className='flex p-16  justify-center bg-black'>
             <Panel />
             <Showcase />
         </div>
