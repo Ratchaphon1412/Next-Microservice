@@ -15,75 +15,49 @@ export default function Component() {
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     let ctx = gsap.context(() => {
-      gsap.set(".image1", { y: -200, opacity: 0.5 });
-      gsap.set(".image2", { y: -100, x: 100, opacity: 0.5 });
-      gsap.set(".image3", { x: -250, opacity: 0.5 });
-      gsap.set(".image4", { y: 100, opacity: 0.5 });
+      gsap.set(".image1", { y: -230, opacity: 0.5 });
+      gsap.set(".image2", { y: -100, x: 170, opacity: 0.5 });
+      gsap.set(".image3", { x: -350, y: -400, opacity: 0.5 });
+      gsap.set(".image4", { y: -400, x: 700, opacity: 0.5 });
 
-      gsap.to(".image1", {
-        y: 0, // Translate by 300 pixels vertically
-        duration: 0.001,
-        opacity: 1,
+      const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: root.current,
-          start: "top center", // Adjust as needed based on when you want the animation to start
-          end: ():any => {
-            if (img2.current) {
-                return img2.current.getBoundingClientRect().top;
-            }
-          },
-          scrub: true, // Smoothing effect when scrolling
-          
-        },
-      });
+            trigger: root.current,
+            start: 'top center',
+            end: '+=1000',
+            scrub: true,
+            
+        }
+    })
 
-      gsap.to(".image2", {
-        y: 0,
-        x: 0,
-        duration: 0.001,
-        opacity: 1,
-        scrollTrigger: {
-          trigger: root.current,
-          start: "top center", // Adjust as needed based on when you want the animation to start
-          end: ():any => {
-            if (img3.current) {
-                img3.current.getBoundingClientRect().top
-            }
-          },
-          scrub: true, // Smoothing effect when scrolling
-         
-        },
-      });
+    tl.to('.image1', {
+      y:0,
+      opacity: 1,
+      duration: 1,
+      ease: 'SlowMo'
+      
+    }).to('.image2', {
+      y:0,
+      x:0,
+      opacity: 1,
+      duration: 1,
+      ease: 'SlowMo'
+      
+    }).to('.image3', {
+      x:0,
+      y:0,
+      opacity: 1,
+      duration: 1,
+      ease: 'SlowMo'
+    }).to('.image4', {
+      y:0,
+      x:0,
+      opacity: 1,
+      duration: 1,
+      ease: 'SlowMo'
+      
+    },0.7)
 
-      gsap.to(".image3", {
-        x: 0,
-        duration: 0.001,
-        opacity: 1,
-        scrollTrigger: {
-          trigger: root.current,
-          start: "top center", // Adjust as needed based on when you want the animation to start
-          end: "bottom center",
-          scrub: true, // Smoothing effect when scrolling
-         
-        },
-      });
-
-      gsap.to(".image4", {
-        y: 0,
-        duration: 0.001,
-        opacity: 1,
-        scrollTrigger: {
-          trigger: root.current,
-          start: ():any => {
-            if (img2.current) {
-                img2.current.getBoundingClientRect().top
-            }
-          }, // Adjust as needed based on when you want the animation to start
-          end: "bottom center",
-          scrub: true, // Smoothing effect when scrolling
-        //   markers: true, // For debugging purposes - shows trigger area
-        },
-      });
 
     }, root);
 

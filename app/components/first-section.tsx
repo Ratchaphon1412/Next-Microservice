@@ -19,13 +19,13 @@ export default function Component() {
 
     let ctx = gsap.context(() => {
       gsap.to(".video1", {
-        y: 300, // Translate by 300 pixels vertically
+        y: 500, // Translate by 300 pixels vertically
         duration: 1,
-        ease: "power1.inOut",
+        ease: "Power4.easeOut",
         scrollTrigger: {
           trigger: root.current,
           start: "top top", // Adjust as needed based on when you want the animation to start
-          end: "bottom+=300 center",
+          end: "bottom+=500 top-=600",
           scrub: true, // Smoothing effect when scrolling
         },
       });

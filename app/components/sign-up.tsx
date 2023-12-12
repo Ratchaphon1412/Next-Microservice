@@ -15,52 +15,87 @@ export default function Component() {
       gsap.set(".cursor1", { opacity: 0.5, y: 150, x: 200 });
       gsap.set(".button1", { opacity: 0, y: -150 });
 
-      gsap.to(".movetext1", {
-        y: -70, // Translate by 300 pixels vertically
-        duration: 0.01,
-        opacity: 1,
-        color: "white",
+      const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: root.current,
-          start: "top center", // Adjust as needed based on when you want the animation to start
-          end: "bottom center",
-          scrub: true, // Smoothing effect when scrolling
-        },
-      });
+            trigger: root.current,
+            start: 'top bottom',
+            end: '+=1000',
+            scrub: true,
+            
+        }
+     })
 
-      gsap.to(".cursor1", {
-        y: 0, // Translate by 300 pixels vertically
-        x: 0,
-        duration: 0.001,
-        opacity: 1,
-        color: "white",
-        scrollTrigger: {
-          trigger: root.current,
-          start: "top center", // Adjust as needed based on when you want the animation to start
-          end: "center-=200 top",
-          scrub: true, // Smoothing effect when scrolling
-        },
-      });
+     tl.to('.cursor1', {
+      y:-10,
+      x:0,
+      opacity: 1,
+      duration: 1,
+      ease: 'SlowMo'
+      
+    }).to('.button1', {
+      y:0,
+      x:0,
+      opacity: 1,
+      duration: 1,
+      ease: 'SlowMo'
+      
+    }).to('.movetext1', {
+      y:-70,
+      x:0,
+      color: "white",
+      opacity: 1,
+      duration: 1,
+      ease: 'SlowMo'
+      
+    },0.7)
 
-      gsap.to(".button1", {
-        y: 30, // Translate by 300 pixels vertically
-        x: 0,
-        duration: 0.001,
-        opacity: 1,
-        color: "white",
-        scrollTrigger: {
-          trigger: root.current,
-          start: "top center", // Adjust as needed based on when you want the animation to start
-          end: "center-=200 top",
-          scrub: true, // Smoothing effect when scrolling
-          //   end: () => {
-          //     if (leftText.current) {
-          //       const rect = leftText.current.getBoundingClientRect();
-          //       return `+=${rect.top + rect.height / 2}`;
-          //     }
-          //   },
-        },
-      });
+      // gsap.to(".movetext1", {
+      //   y: -70, // Translate by 300 pixels vertically
+      //   duration: 0.01,
+      //   opacity: 1,
+      //   color: "white",
+      //   scrollTrigger: {
+      //     trigger: root.current,
+      //     start: "top center", // Adjust as needed based on when you want the animation to start
+      //     end: "bottom center",
+      //     scrub: true, // Smoothing effect when scrolling
+      //   },
+      // });
+
+      // gsap.to(".cursor1", {
+      //   y: 0, // Translate by 300 pixels vertically
+      //   x: 0,
+      //   duration: 0.001,
+      //   opacity: 1,
+      //   color: "white",
+      //   scrollTrigger: {
+      //     trigger: root.current,
+      //     start: "top center", // Adjust as needed based on when you want the animation to start
+      //     end: "center-=350 center",
+      //     scrub: true, // Smoothing effect when scrolling
+
+      //   },
+      // });
+
+      // gsap.to(".button1", {
+      //   y: 10, // Translate by 300 pixels vertically
+      //   x: 0,
+      //   duration: 0.001,
+      //   opacity: 1,
+      //   color: "white",
+      //   scrollTrigger: {
+      //     trigger: root.current,
+      //     start: "top center", // Adjust as needed based on when you want the animation to start
+      //     end: "center-=200 center",
+      //     scrub: true, // Smoothing effect when scrolling
+      //     //   end: () => {
+      //     //     if (leftText.current) {
+      //     //       const rect = leftText.current.getBoundingClientRect();
+      //     //       return `+=${rect.top + rect.height / 2}`;
+      //     //     }
+      //     //   },
+      //   },
+      // });
     }, root);
 
     return () => ctx.revert();
@@ -73,7 +108,7 @@ export default function Component() {
     >
       <div
         ref={leftText}
-        className="flex-1 px-4  min-[1440px]:text-[70px] text-[0px] pt-32 font-pixelletMedium movetext1"
+        className="flex-1 pl-12  min-[1440px]:text-[70px] text-[0px] pt-32 font-pixelletMedium movetext1"
       >
         Pixel Man Where Every Click Creates a
         <p className="text-amber-400">Masterpiece!</p>
