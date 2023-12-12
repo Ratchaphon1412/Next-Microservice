@@ -5,7 +5,7 @@ export default function Components(){
 
 
     return(
-        <div className=" rounded-2xl px-10 py-6 mx-8 w-9/12 ">
+        <div className=" rounded-2xl mx-8  ">
             {/* <div className='mb-6'>
                 <Paginate />
             </div> */}
