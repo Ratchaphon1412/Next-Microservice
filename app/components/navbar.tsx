@@ -2,15 +2,20 @@
 
 import Logo from "@/app/components/logo";
 import { useState } from "react";
+import { useClickAway } from "@uidotdev/usehooks";
 export default function Component() {
   const [isToggled, toggle] = useState(false);
+
+  const ref = useClickAway<HTMLDivElement>(() => {
+    toggle(false);
+  });
 
   const callback = () => {
     toggle(!isToggled);
   };
 
   return (
-    <header className="fixed inset-x-0 top-0 z-30 mx-auto w-full max-w-screen-2xl bg-black py-3 shadow backdrop-blur-lg md:top-6 md:rounded-3xl lg:max-w-screen-4xl border border-gray-500">
+    <header ref={ref} className="fixed inset-x-0 top-0 z-30 mx-auto w-full max-w-screen-2xl bg-black py-3 shadow backdrop-blur-lg md:top-6 md:rounded-3xl lg:max-w-screen-4xl border border-gray-500">
       <div className="px-4">
         <div className="flex items-center justify-between">
           <div className="flex shrink-0">
@@ -106,7 +111,7 @@ export default function Component() {
           </div>
         </div>
       </div>
-      <div
+      <div 
         id="tabs-1-panel-1"
         className={isToggled ? "space-y-10 px-4 pb-8 pt-10" : "hidden"}
         aria-labelledby="tabs-1-tab-1"
