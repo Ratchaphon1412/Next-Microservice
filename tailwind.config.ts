@@ -27,7 +27,10 @@ const config: Config = {
       },
     },
   },
-  plugins: [daisyui, require("flowbite/plugin"),
+  plugins: [
+    daisyui,
+    require("flowbite/plugin"),
+    require("@tailwindcss/aspect-ratio"),
   ],
 };
 export default config;
