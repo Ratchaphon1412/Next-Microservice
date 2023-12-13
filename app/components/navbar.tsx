@@ -2,6 +2,7 @@
 
 import Logo from "@/app/components/logo";
 import { useState } from "react";
+import Cart from "@/app/store/components/cart";
 export default function Component() {
   const [isToggled, toggle] = useState(false);
 
@@ -39,8 +40,24 @@ export default function Component() {
                 role="tab"
                 type="button"
               >
-                Menu
+                Story
               </button>
+            </div>
+            <div
+              className="-mb-px flex space-x-4 px-2"
+              aria-orientation="horizontal"
+              role="tablist"
+            >
+              <a
+                href="/store"
+                id="tabs-1-tab-1"
+                className="border-transparent text-white flex-1 whitespace-nowrap border-b-2 px-1 py-4 text-base font-medium font-pixellet"
+                aria-controls="tabs-1-panel-1"
+                role="tab"
+                type="button"
+              >
+                Shop
+              </a>
             </div>
             <div
               className="-mb-px flex space-x-4 px-2"
@@ -289,6 +306,7 @@ export default function Component() {
           </div>
         </div>
       </div>
+      <Cart />
     </header>
   );
 }
