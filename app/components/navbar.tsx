@@ -1,8 +1,16 @@
-import Logo from "@/app/components/logo";
+"use client";
 
+import Logo from "@/app/components/logo";
+import { useState } from "react";
 export default function component() {
+  const [isToggled, toggle] = useState(false);
+
+  const callback = () => {
+    toggle(!isToggled);
+  };
+
   return (
-    <header className="fixed inset-x-0 top-0 z-30 mx-auto w-full max-w-screen-md bg-black py-3 shadow backdrop-blur-lg md:top-6 md:rounded-3xl lg:max-w-screen-lg border border-gray-500">
+    <header className="fixed inset-x-0 top-0 z-30 mx-auto w-full max-w-screen-2xl bg-black py-3 shadow backdrop-blur-lg md:top-6 md:rounded-3xl lg:max-w-screen-4xl border border-gray-500">
       <div className="px-4">
         <div className="flex items-center justify-between">
           <div className="flex shrink-0">
@@ -18,6 +26,39 @@ export default function component() {
           </div>
 
           <div className="flex items-center justify-end gap-3">
+            <div
+              className="-mb-px flex space-x-4 px-2"
+              aria-orientation="horizontal"
+              role="tablist"
+            >
+              <button
+                id="tabs-1-tab-1"
+                className="border-transparent text-white flex-1 whitespace-nowrap border-b-2 px-1 py-4 text-base font-medium font-pixellet"
+                onClick={callback}
+                aria-controls="tabs-1-panel-1"
+                role="tab"
+                type="button"
+              >
+                Menu
+              </button>
+            </div>
+            <div
+              className="-mb-px flex space-x-4 px-2"
+              aria-orientation="horizontal"
+              role="tablist"
+            >
+              <a
+                href="/gallery"
+                id="tabs-1-tab-1"
+                className="border-transparent text-white flex-1 whitespace-nowrap border-b-2 px-1 py-4 text-base font-medium font-pixellet"
+                aria-controls="tabs-1-panel-1"
+                role="tab"
+                type="button"
+              >
+                Gallery
+              </a>
+            </div>
+
             <a
               className="items-center justify-center rounded-xl font-pixellet  px-3 py-2 text-sm font-semibold text-white hover:text-black shadow-sm hover:ring-1 hover:ring-inset hover:ring-gray-300 transition-all duration-150 hover:bg-gray-50 sm:inline-flex"
               href="/login"
@@ -36,7 +77,7 @@ export default function component() {
 
             <a
               className="items-center justify-center rounded-xl  px-3 py-2 text-sm font-semibold text-white hover:text-black shadow-sm hover:ring-1 hover:ring-inset hover:ring-gray-300 transition-all duration-150 hover:bg-gray-50 sm:inline-flex"
-              href="/login"
+              href="/store"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -62,6 +103,189 @@ export default function component() {
             >
               Login
             </a>
+          </div>
+        </div>
+      </div>
+      <div
+        id="tabs-1-panel-1"
+        className={isToggled ? "space-y-10 px-4 pb-8 pt-10" : "hidden"}
+        aria-labelledby="tabs-1-tab-1"
+        role="tabpanel"
+      >
+        <div className="grid grid-cols-5 gap-x-4">
+          <div>
+            <p
+              id="women-clothing-heading-mobile"
+              className="font-medium text-amber-400"
+            >
+              Clothing
+            </p>
+            <ul
+              role="list"
+              aria-labelledby="women-clothing-heading-mobile"
+              className="mt-6 flex flex-col space-y-6"
+            >
+              <li className="flow-root">
+                <a href="#" className="-m-2 block p-2 text-gray-300">
+                  Tops
+                </a>
+              </li>
+              <li className="flow-root">
+                <a href="#" className="-m-2 block p-2 text-gray-300">
+                  Dresses
+                </a>
+              </li>
+              <li className="flow-root">
+                <a href="#" className="-m-2 block p-2 text-gray-300">
+                  Pants
+                </a>
+              </li>
+              <li className="flow-root">
+                <a href="#" className="-m-2 block p-2 text-gray-300">
+                  Denim
+                </a>
+              </li>
+              <li className="flow-root">
+                <a href="#" className="-m-2 block p-2 text-gray-300">
+                  Sweaters
+                </a>
+              </li>
+              <li className="flow-root">
+                <a href="#" className="-m-2 block p-2 text-gray-300">
+                  T-Shirts
+                </a>
+              </li>
+              <li className="flow-root">
+                <a href="#" className="-m-2 block p-2 text-gray-300">
+                  Jackets
+                </a>
+              </li>
+              <li className="flow-root">
+                <a href="#" className="-m-2 block p-2 text-gray-300">
+                  Activewear
+                </a>
+              </li>
+              <li className="flow-root">
+                <a href="#" className="-m-2 block p-2 text-gray-300">
+                  Browse All
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p
+              id="women-accessories-heading-mobile"
+              className="font-medium text-amber-400"
+            >
+              Accessories
+            </p>
+            <ul
+              role="list"
+              aria-labelledby="women-accessories-heading-mobile"
+              className="mt-6 flex flex-col space-y-6"
+            >
+              <li className="flow-root">
+                <a href="#" className="-m-2 block p-2 text-gray-300">
+                  Watches
+                </a>
+              </li>
+              <li className="flow-root">
+                <a href="#" className="-m-2 block p-2 text-gray-300">
+                  Wallets
+                </a>
+              </li>
+              <li className="flow-root">
+                <a href="#" className="-m-2 block p-2 text-gray-300">
+                  Bags
+                </a>
+              </li>
+              <li className="flow-root">
+                <a href="#" className="-m-2 block p-2 text-gray-300">
+                  Sunglasses
+                </a>
+              </li>
+              <li className="flow-root">
+                <a href="#" className="-m-2 block p-2 text-gray-300">
+                  Hats
+                </a>
+              </li>
+              <li className="flow-root">
+                <a href="#" className="-m-2 block p-2 text-gray-300">
+                  Belts
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p
+              id="women-brands-heading-mobile"
+              className="font-medium text-amber-400"
+            >
+              Brands
+            </p>
+            <ul
+              role="list"
+              aria-labelledby="women-brands-heading-mobile"
+              className="mt-6 flex flex-col space-y-6"
+            >
+              <li className="flow-root">
+                <a href="#" className="-m-2 block p-2 text-gray-300">
+                  Full Nelson
+                </a>
+              </li>
+              <li className="flow-root">
+                <a href="#" className="-m-2 block p-2 text-gray-300">
+                  My Way
+                </a>
+              </li>
+              <li className="flow-root">
+                <a href="#" className="-m-2 block p-2 text-gray-300">
+                  Re-Arranged
+                </a>
+              </li>
+              <li className="flow-root">
+                <a href="#" className="-m-2 block p-2 text-gray-300">
+                  Counterfeit
+                </a>
+              </li>
+              <li className="flow-root">
+                <a href="#" className="-m-2 block p-2 text-gray-300">
+                  Significant Other
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div className="group relative text-sm">
+            <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
+              <img
+                src="https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg"
+                alt="Models sitting back to back, wearing Basic Tee in black and bone."
+                className="object-cover object-center"
+              />
+            </div>
+            <a href="#" className="mt-6 block font-medium text-white">
+              <span className="absolute inset-0 z-10" aria-hidden="true"></span>
+              New Arrivals
+            </a>
+            <p aria-hidden="true" className="mt-1">
+              Shop now
+            </p>
+          </div>
+          <div className="group relative text-sm">
+            <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
+              <img
+                src="https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg"
+                alt="Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees."
+                className="object-cover object-center"
+              />
+            </div>
+            <a href="#" className="mt-6 block font-medium text-white">
+              <span className="absolute inset-0 z-10" aria-hidden="true"></span>
+              Basic Tees
+            </a>
+            <p aria-hidden="true" className="mt-1">
+              Shop now
+            </p>
           </div>
         </div>
       </div>
