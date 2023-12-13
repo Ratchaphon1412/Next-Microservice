@@ -1,11 +1,9 @@
-
-import SlideShow from "@/app/components/slideShow"
+import SlideShow from "@/app/components/slideShow";
 
 export default function Component() {
-
   // image use next image
   return (
-    <div className="min-h-screen bg-black flex items-center relative">
+    <div className="min-h-screen-1/2 bg-black flex items-center relative">
       <div className="absolute z-10 w-full h-full">
         <div className="absolute inset-x-0 top-1/2 -z-10 flex -translate-y-1/2 justify-center overflow-hidden [mask-image:radial-gradient(50%_45%_at_50%_55%,white,transparent)]">
           <svg
@@ -45,14 +43,14 @@ export default function Component() {
         <div className=" flex-1 justify-center">
           <SlideShow></SlideShow>
         </div>
-       
+
         <div className=" flex-1 flex flex-col min-[1280px]:pl-64 pl-4">
           <p className="text-6xl font-pixelletMedium text-white">
             DISCOVER <br /> OUR <br />
             COLLECTION
           </p>
           <a href="" className="text-2xl text-gray-50 font-pixelletMedium mt-4">
-              <p>see more</p>
+            <p>see more</p>
           </a>
         </div>
       </div>
