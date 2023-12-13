@@ -18,8 +18,8 @@ export default async function Home() {
       <SecondSection2 />
       <SecondSection />
 
-      {/* <ThirdSection /> */}
-      {/* <FourthSection /> */}
+      {/* <ThirdSection />
+      <FourthSection /> */}
       <FifthSection />
       <SixthSection />
     </main>

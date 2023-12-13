@@ -2,7 +2,7 @@
 
 import Logo from "@/app/components/logo";
 import { useState } from "react";
-export default function component() {
+export default function Component() {
   const [isToggled, toggle] = useState(false);
 
   const callback = () => {
