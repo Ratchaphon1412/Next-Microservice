@@ -1,4 +1,4 @@
-import FourthSection from "@/app/components/fourth-section";
+import SignUp from "@/app/components/sign-up"
 import FifthSection from "@/app/components/clip-path";
 import Slider from "@/app/gallery/components/slider"
 import UpImages from "@/app/gallery/components/up-images"
@@ -14,7 +14,7 @@ export default function GalleryPage() {
       <Gallery direction={1500}/>
       
       <Slider />
-      
+      <SignUp />
     </main>
   );
 }
