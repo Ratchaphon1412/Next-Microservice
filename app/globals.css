@@ -74,11 +74,101 @@ body {
 
 .fullwidth-image__overlay {
   position: absolute;
+  width: 100%;
+  height: screen;
   inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: azure;
   z-index: 2;
-  background-color: black;
-  opacity: 0;
+  opacity: 1;
 }
+
+
+.hero {
+  display: grid;
+  place-items: center;
+  height: 95rem;
+  background-color: black;
+  position: relative;
+}
+
+.hero__title {
+  text-align: center;
+  max-width: 10ch;
+  z-index: 2;
+  mix-blend-mode: difference;
+  color: white;
+}
+
+.hero__title div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  
+}
+.st--section-c img{
+  width: 300px;
+  height: 700px;
+  object-fit: cover;
+  clip-path: polygon(5% 10%, 95% 10%, 95% 90%, 5% 90%);
+  /* polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%) */
+}
+
+.hero img:nth-child(1) {
+  width: 75rem;
+  height: 70rem;
+  top: 35rem;
+  filter: drop-shadow(0 0 5rem white);
+ 
+}
+
+.hero img:nth-child(2) {
+  width: 70rem;
+  height: 65rem;
+  top: 55rem;
+  filter: drop-shadow(0 0 0.75rem black);
+  
+}
+.hero img:nth-child(3) {
+  width: 65rem;
+  height: 60rem;
+  top: 75rem;
+  filter: drop-shadow(0 0 0.75rem black);
+  
+}
+.hero img:nth-child(4) {
+  width: 60rem;
+  height: 55rem;
+  top: 180rem;
+  
+}
+.hero img:nth-child(5) {
+  width: 55rem;
+  height: 50rem;
+  top: 225rem;
+ 
+}
+.hero img:nth-child(6) {
+  width: 45rem;
+  height: 40rem;
+  top: 270rem;
+ 
+}
+.hero img:nth-child(7) {
+  width: 70rem;
+  height: 65rem;
+  top: 315rem;
+ 
+}
+
 
 
 @font-face {

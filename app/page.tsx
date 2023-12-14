@@ -18,9 +18,9 @@ export default async function Home() {
       <SecondSection2 />
       <SecondSection />
 
-      {/* <ThirdSection />
-      <FourthSection /> */}
-      <FifthSection />
+       <ThirdSection /> 
+      {/* <FourthSection /> */}
+      <FifthSection videoPath="/assets/video/presentration-pixel-man.mp4" text="PIXEL MAN"/>
       <SixthSection />
     </main>
   );
