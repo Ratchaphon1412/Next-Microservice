@@ -44,7 +44,7 @@ export default function ClipPath({text, videoPath}: {text: string, videoPath: st
 
     return (
         <section className="fullwidth-image" ref={root}>
-            <div className="fullwidth-image__overlay"><h1 className="font-pixelletMedium text-[200px]">Pixel Man</h1></div>
+            <div className="fullwidth-image__overlay"><h1 className="font-pixelletMedium text-[70px] min-[1440px]:text-[150px]">Pixel Man</h1></div>
             <div className="h-full w-full object-cover absolute inset-0 videoShow">
                 <VideoIntro
                 videoPath={videoPath}

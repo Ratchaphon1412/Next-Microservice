@@ -3,6 +3,7 @@ import FifthSection from "@/app/components/clip-path";
 import Slider from "@/app/gallery/components/slider"
 import UpImages from "@/app/gallery/components/up-images"
 import Gallery from "@/app/gallery/components/gallery"
+import Stagger from "@/app/gallery/components/stagger"
 export default function GalleryPage() {
   return (
     <main className="overflow-hidden">
@@ -14,6 +15,7 @@ export default function GalleryPage() {
       <Gallery direction={1500}/>
       
       <Slider />
+      <Stagger />
       <SignUp />
     </main>
   );

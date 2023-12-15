@@ -103,7 +103,7 @@ export default function Component() {
 
   return (
     <section
-      className="w-full bg-black flex justify-center h-[0px] min-[1440px]:h-screen items-center"
+      className="w-full bg-black flex justify-center  items-center"
       ref={root}
     >
       <div

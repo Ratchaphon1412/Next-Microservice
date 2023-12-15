@@ -43,7 +43,7 @@ export default function Component({direction}: {direction: any}) {
 
   return (
     <div className="p-5 overflow-hidden" ref={root}>
-      <div className="flex gap-5 h-[500px]" ref={gallery}>
+      <div className="flex gap-5 h-[200px] min-[1440px]:h-[500px]" ref={gallery}>
         <img src="https://source.unsplash.com/bYuI23mnmDQ" />
         <img src="https://source.unsplash.com/Nllx4R-2c3o" />
         <img src="https://source.unsplash.com/lp40q07DIe0" />

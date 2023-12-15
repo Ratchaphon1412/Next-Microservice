@@ -115,11 +115,18 @@ body {
   
 }
 .st--section-c img{
-  width: 300px;
-  height: 700px;
+  width: 200px;
+  height: 350px;
   object-fit: cover;
   clip-path: polygon(5% 10%, 95% 10%, 95% 90%, 5% 90%);
   /* polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%) */
+}
+
+@media screen and (min-width: 1440px) {
+  .st--section-c img{
+    width: 300px;
+    height: 700px;
+  }
 }
 
 .hero img:nth-child(1) {
@@ -176,15 +183,15 @@ body {
 
 .container-pixel {
   display: flex;
+  flex-direction: column;
   gap: 1em
 }
 
-.container-pixel > .text {
-  font-size: 100px;
-}
+
 
 .container-pixel.reorder {
-  gap: 0.5em
+  gap: 0.5em;
+  flex-direction: row;
   
 }
 
