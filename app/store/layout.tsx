@@ -1,5 +1,5 @@
 import { Children } from "react";
-
+import Link from "next/link";
 export default function StoreLayout({
   children,
 }: {
@@ -45,29 +45,29 @@ export default function StoreLayout({
                 <h3 className="sr-only">Categories</h3>
                 <ul role="list" className="px-2 py-3 font-medium text-gray-900">
                   <li>
-                    <a href="#" className="block px-2 py-3">
+                    <Link href="#" className="block px-2 py-3">
                       Totes
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" className="block px-2 py-3">
+                    <Link href="#" className="block px-2 py-3">
                       Backpacks
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" className="block px-2 py-3">
+                    <Link href="#" className="block px-2 py-3">
                       Travel Bags
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" className="block px-2 py-3">
+                    <Link href="#" className="block px-2 py-3">
                       Hip Bags
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" className="block px-2 py-3">
+                    <Link href="#" className="block px-2 py-3">
                       Laptop Sleeves
-                    </a>
+                    </Link>
                   </li>
                 </ul>
 
@@ -496,7 +496,7 @@ export default function StoreLayout({
                   tabIndex={-1}
                 >
                   <div className="py-1" role="none">
-                    <a
+                    <Link
                       href="#"
                       className="font-medium text-gray-900 block px-4 py-2 text-sm"
                       role="menuitem"
@@ -504,8 +504,8 @@ export default function StoreLayout({
                       id="menu-item-0"
                     >
                       Most Popular
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       href="#"
                       className="text-gray-500 block px-4 py-2 text-sm"
                       role="menuitem"
@@ -513,8 +513,8 @@ export default function StoreLayout({
                       id="menu-item-1"
                     >
                       Best Rating
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       href="#"
                       className="text-gray-500 block px-4 py-2 text-sm"
                       role="menuitem"
@@ -522,8 +522,8 @@ export default function StoreLayout({
                       id="menu-item-2"
                     >
                       Newest
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       href="#"
                       className="text-gray-500 block px-4 py-2 text-sm"
                       role="menuitem"
@@ -531,8 +531,8 @@ export default function StoreLayout({
                       id="menu-item-3"
                     >
                       Price: Low to High
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       href="#"
                       className="text-gray-500 block px-4 py-2 text-sm"
                       role="menuitem"
@@ -540,7 +540,7 @@ export default function StoreLayout({
                       id="menu-item-4"
                     >
                       Price: High to Low
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -597,19 +597,19 @@ export default function StoreLayout({
                   className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900"
                 >
                   <li>
-                    <a href="#">Totes</a>
+                    <Link href="#">Totes</Link>
                   </li>
                   <li>
-                    <a href="#">Backpacks</a>
+                    <Link href="#">Backpacks</Link>
                   </li>
                   <li>
-                    <a href="#">Travel Bags</a>
+                    <Link href="#">Travel Bags</Link>
                   </li>
                   <li>
-                    <a href="#">Hip Bags</a>
+                    <Link href="#">Hip Bags</Link>
                   </li>
                   <li>
-                    <a href="#">Laptop Sleeves</a>
+                    <Link href="#">Laptop Sleeves</Link>
                   </li>
                 </ul>
 

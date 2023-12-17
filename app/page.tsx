@@ -7,7 +7,7 @@ import Category from "@/app/components/category";
 import ThirdSection from "@/app/components/sign-up";
 import FourthSection from "@/app/components/fourth-section";
 import FifthSection from "@/app/components/clip-path";
-import SixthSection from '@/app/components/horizontal'
+import SixthSection from "@/app/components/horizontal";
 
 export default async function Home() {
   return (
@@ -18,10 +18,13 @@ export default async function Home() {
       <SecondSection2 />
       <SecondSection />
 
-       <ThirdSection /> 
+      <ThirdSection />
       {/* <FourthSection /> */}
-      <FifthSection videoPath="/assets/video/presentration-pixel-man.mp4" text="PIXEL MAN"/>
-      <SixthSection />
+      <FifthSection
+        videoPath="/assets/video/presentration-pixel-man.mp4"
+        text="PIXEL MAN"
+      />
+      {/* <SixthSe  ction /> */}
     </main>
   );
 }
