@@ -1,4 +1,6 @@
 import { Children } from "react";
+import Navbar from '@/app/components/navbar'
+import Footer from '@/app/components/footer'
 
 export default function StoreLayout({
   children,
@@ -6,6 +8,8 @@ export default function StoreLayout({
   children: React.ReactNode;
 }) {
   return (
+    <>
+    <Navbar />
     <div className="bg-white pt-6">
       <div>
         <div
@@ -1001,5 +1005,7 @@ export default function StoreLayout({
         </main>
       </div>
     </div>
+    <Footer />
+    </>
   );
 }
