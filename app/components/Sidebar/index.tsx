@@ -64,12 +64,12 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
       }`}
     >
       {/* <!-- SIDEBAR HEADER --> */}
-      <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
-        <Link href="/">
-          <h1 className="md:text-4xl text-3xl font-xs font-pixelletMedium tracking-tight mb-6">
+      <div className="flex items-center justify-between gap-2 px-6 py-5 lg:py-6">
+        <Link href="/" className="w-full flex flex-col items-center justify-center">
+          <h1 className="text-lg font-xs font-pixelletMedium tracking-tight mb-2 pr-4">
               Pixel Man
           </h1>
-          <Logo class="h-12"/>
+          <Logo class="h-7"/>
         </Link>
 
         <button

@@ -53,8 +53,9 @@ const DropdownUser = () => {
           <Image
             width={112}
             height={112}
-            src={"/images/user/user-01.png"}
+            src={"/assets/images/profile.png"}
             alt="User"
+            className="rounded-full"
           />
         </span>
 

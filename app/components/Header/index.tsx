@@ -4,6 +4,7 @@ import DropdownMessage from "./DropdownMessage";
 import DropdownNotification from "./DropdownNotification";
 import DropdownUser from "./DropdownUser";
 import Image from "next/image";
+import Logo from "@/app/components/logo";
 
 const Header = (props: {
   sidebarOpen: string | boolean | undefined;
@@ -56,14 +57,12 @@ const Header = (props: {
           </button>
           {/* <!-- Hamburger Toggle BTN --> */}
 
-          <Link className="block flex-shrink-0 lg:hidden" href="/">
-            <Image
-              width={32}
-              height={32}
-              src={"/images/logo/logo-icon.svg"}
-              alt="Logo"
-            />
-          </Link>
+          <Link href="/" className="w-full flex flex-col items-center justify-center">
+          <h1 className="text-lg font-xs font-pixelletMedium tracking-tight mb-2 pr-4">
+              Pixel Man
+          </h1>
+          <Logo class="h-7"/>
+        </Link>
         </div>
 
         <div className="hidden sm:block">
@@ -92,12 +91,6 @@ const Header = (props: {
                   />
                 </svg>
               </button>
-
-              <input
-                type="text"
-                placeholder="Type to search..."
-                className="w-full bg-transparent pl-9 pr-4 font-medium focus:outline-none xl:w-125"
-              />
             </div>
           </form>
         </div>
@@ -105,7 +98,7 @@ const Header = (props: {
         <div className="flex items-center gap-3 2xsm:gap-7">
           <ul className="flex items-center gap-2 2xsm:gap-4">
             {/* <!-- Dark Mode Toggler --> */}
-            <DarkModeSwitcher />
+            {/* <DarkModeSwitcher /> */}
             {/* <!-- Dark Mode Toggler --> */}
 
             {/* <!-- Notification Menu Area --> */}
