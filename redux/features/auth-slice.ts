@@ -1,6 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { RootState } from '@reduxjs/toolkit/query';
-import { TypedUseSelectorHook, useSelector } from 'react-redux';
 
 type InitialState = {
     value: AuthState;
@@ -49,8 +47,6 @@ export const auth = createSlice({
 
 export const { logIn, logOut } = auth.actions
 export default auth.reducer
-
-export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 
 
 
