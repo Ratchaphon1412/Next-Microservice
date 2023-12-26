@@ -1,5 +1,13 @@
-import { BRAND } from "@/types/brand";
 import Image from "next/image";
+
+type BRAND = {
+  logo: string,
+  name: string,
+  visitors: Number,
+  revenues: string,
+  sales: Number,
+  conversion: Number,
+}
 
 const brandData: BRAND[] = [
   {
@@ -99,7 +107,7 @@ const TableOne = () => {
             </div>
 
             <div className="flex items-center justify-center p-2.5 xl:p-5">
-              <p className="text-black dark:text-white">{brand.visitors}K</p>
+              <p className="text-black dark:text-white">{`${brand.visitors}`}K</p>
             </div>
 
             <div className="flex items-center justify-center p-2.5 xl:p-5">
@@ -107,11 +115,11 @@ const TableOne = () => {
             </div>
 
             <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
-              <p className="text-black dark:text-white">{brand.sales}</p>
+              <p className="text-black dark:text-white">{`${brand.sales}`}</p>
             </div>
 
             <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
-              <p className="text-meta-5">{brand.conversion}%</p>
+              <p className="text-meta-5">{`${brand.conversion}`}%</p>
             </div>
           </div>
         ))}

@@ -1,4 +1,10 @@
-import { Package } from "@/types/package";
+
+type Package = {
+  name: string,
+  price: Number,
+  invoiceDate: string,
+  status: string,
+}
 
 const packageData: Package[] = [
   {
@@ -55,7 +61,7 @@ const TableThree = () => {
                   <h5 className="font-medium text-black dark:text-white">
                     {packageItem.name}
                   </h5>
-                  <p className="text-sm">${packageItem.price}</p>
+                  <p className="text-sm">${`${packageItem.price}`}</p>
                 </td>
                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                   <p className="text-black dark:text-white">

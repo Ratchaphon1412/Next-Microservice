@@ -1,5 +1,13 @@
 import Image from "next/image";
-import { Product } from "@/types/product";
+
+type Product =  {
+  image: string,
+  name: string,
+  category: string,
+  price: Number
+  sold: Number,
+  profit: Number,
+}
 
 const productData: Product[] = [
   {
@@ -90,14 +98,14 @@ const TableTwo = () => {
           </div>
           <div className="col-span-1 flex items-center">
             <p className="text-sm text-black dark:text-white">
-              ${product.price}
+              ${`${product.price}`}
             </p>
           </div>
           <div className="col-span-1 flex items-center">
-            <p className="text-sm text-black dark:text-white">{product.sold}</p>
+            <p className="text-sm text-black dark:text-white">{`${product.sold}`}</p>
           </div>
           <div className="col-span-1 flex items-center">
-            <p className="text-sm text-meta-3">${product.profit}</p>
+            <p className="text-sm text-meta-3">${`${product.profit}`}</p>
           </div>
         </div>
       ))}
