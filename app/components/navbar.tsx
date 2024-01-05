@@ -1,10 +1,13 @@
 "use client";
 
 import Logo from "@/app/components/logo";
+import Cart from "@/app/store/components/cart"
 import { useState } from "react";
 import { useClickAway } from "@uidotdev/usehooks";
 export default function Component() {
   const [isToggled, toggle] = useState(false);
+
+  const [openCart, setOpenCart] = useState(false);
 
   const ref = useClickAway<HTMLDivElement>(() => {
     toggle(false);
@@ -13,6 +16,10 @@ export default function Component() {
   const callback = () => {
     toggle(!isToggled);
   };
+
+  const toggleCartCallback = () => {
+    setOpenCart(!openCart);
+  }
 
   return (
     <header ref={ref} className="fixed inset-x-0 top-0 z-30 mx-auto w-full max-w-screen-2xl bg-black py-3 shadow backdrop-blur-lg md:top-6 md:rounded-3xl lg:max-w-screen-4xl border border-gray-500">
@@ -80,9 +87,9 @@ export default function Component() {
               </svg>
             </a>
 
-            <a
+            <button onClick={toggleCartCallback}
               className="items-center justify-center rounded-xl  px-3 py-2 text-sm font-semibold text-white hover:text-black shadow-sm hover:ring-1 hover:ring-inset hover:ring-gray-300 transition-all duration-150 hover:bg-gray-50 sm:inline-flex"
-              href="/store"
+              
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +101,7 @@ export default function Component() {
               >
                 <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
               </svg>
-            </a>
+            </button>
             <div className="border-l-2 border-gray-400 h-[30px]"></div>
             <a
               className="items-center justify-center rounded-xl font-pixellet px-3 py-2 text-sm font-semibold text-white hover:text-black shadow-sm hover:ring-1 hover:ring-inset hover:ring-gray-300 transition-all duration-150 hover:bg-gray-50 sm:inline-flex"
@@ -294,6 +301,7 @@ export default function Component() {
           </div>
         </div>
       </div>
+      <Cart showCart={openCart} toggleCart={toggleCartCallback}/>
     </header>
   );
 }
