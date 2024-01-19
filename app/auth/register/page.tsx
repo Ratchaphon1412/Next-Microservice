@@ -4,7 +4,7 @@ export default function RegisterPage() {
       <div className="md:basis-1/2">
         <div className="h-screen flex flex-col justify-center items-center">
           <p className="text-white text-3xl font-semibold tracking-wide mb-10">
-            LET'S GET YOU STARTED
+            LETS GET YOU STARTED
           </p>
 
           <form className="w-1/2">
@@ -24,10 +24,6 @@ export default function RegisterPage() {
                   Full name
                 </label>
               </div>
-              {/* <p id="outlined_error_help" className="mt-2 text-xs text-red-600">
-                <span className="font-medium">Oh, snapp!</span> Some error
-                message.
-              </p> */}
             </div>
             <div className="mb-4">
               <div className="relative">
@@ -44,10 +40,6 @@ export default function RegisterPage() {
                   Email address
                 </label>
               </div>
-              {/* <p v-if="error_email" className="mt-2 text-xs text-red-600">
-                <span className="font-medium">Oh, snapp!</span> Some error
-                message.
-              </p> */}
             </div>
             <div className="mb-4">
               <div className="relative">
@@ -65,14 +57,6 @@ export default function RegisterPage() {
                   Phone number
                 </label>
               </div>
-              {/* <p
-                v-if="error_phone"
-                id="outlined_error_help"
-                className="mt-2 text-xs text-red-600"
-              >
-                <span className="font-medium">Oh, snapp!</span> Some error
-                message.
-              </p> */}
             </div>
             <div className="flex my-10">
               <div className="mr-4">
@@ -104,21 +88,6 @@ export default function RegisterPage() {
                   Create password
                 </label>
               </div>
-              {/* <div v-if="Password">
-                <p
-                  id="outlined_error_help"
-                  className="mt-2 text-xs text-red-600"
-                >
-                  Password must contain a minimum of 8 characters
-                </p>
-                <p
-                  v-if="error_symbol"
-                  id="outlined_error_help"
-                  className="mt-2 text-xs text-red-600"
-                >
-                  Password must contain at least one symbol e.g. @, !
-                </p>
-              </div> */}
             </div>
             <div className="mb-4">
               <div className="relative">
@@ -135,9 +104,6 @@ export default function RegisterPage() {
                   Confirm password
                 </label>
               </div>
-              {/* <p id="outlined_error_help" className="mt-2 text-xs text-red-600">
-                No match the password.
-              </p> */}
             </div>
             <button
               type="submit"
