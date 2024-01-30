@@ -1,4 +1,4 @@
-import Calendar from "@/app/components/Calender";
+import Calendar from "@/app/components/Calender/index";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

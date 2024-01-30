@@ -4,7 +4,7 @@ export default function RegisterPage() {
       <div className="md:basis-1/2">
         <div className="h-screen flex flex-col justify-center items-center">
           <p className="text-white text-3xl font-semibold tracking-wide mb-10">
-            LETS GET YOU STARTED
+            LET US GET YOU STARTED
           </p>
 
           <form className="w-1/2">

@@ -1,8 +1,8 @@
 "use client";
 
 import Logo from "@/app/components/logo";
-import { useState } from "react";
 import Cart from "@/app/store/components/cart";
+import { useState } from "react";
 import { useClickAway } from "@uidotdev/usehooks";
 export default function Component() {
   const [isToggled, toggle] = useState(false);

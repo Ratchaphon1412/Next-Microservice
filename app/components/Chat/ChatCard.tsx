@@ -1,6 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
 
+type Chat = {
+  avatar: string;
+  name: string;
+  text: string;
+  time: Number;
+  textCount: Number;
+  dot: Number;
+};
+
 const chatData: Array<any> = [
   {
     avatar: "/images/user/user-01.png",
@@ -84,14 +93,14 @@ const ChatCard = () => {
                   <span className="text-sm text-black dark:text-white">
                     {chat.text}
                   </span>
-                  <span className="text-xs"> . {chat.time} min</span>
+                  <span className="text-xs"> . {`${chat.time}`} min</span>
                 </p>
               </div>
               {chat.textCount !== 0 && (
                 <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
                   <span className="text-sm font-medium text-white">
                     {" "}
-                    {chat.textCount}
+                    {`${chat.textCount}`}
                   </span>
                 </div>
               )}

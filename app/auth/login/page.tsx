@@ -109,7 +109,7 @@ export default function Login() {
             </button>
           </form>
           <p className="mt-4">
-            Dont have an account?
+            Do not have an account?
             <a
               href="/register"
               className="text-[#2674B4]  font-semibold hover:underline"
