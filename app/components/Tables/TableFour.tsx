@@ -1,16 +1,8 @@
+// import { BRAND } from "@/types/brand";
 import Image from "next/image";
 import DropdownDefault from "../Dropdowns/DropdownDefault";
 
-type BRAND = {
-  logo: string,
-  name: string,
-  visitors: Number,
-  revenues: string,
-  sales: Number,
-  conversion: Number,
-}
-
-const brandData: BRAND[] = [
+const brandData: Array<any> = [
   {
     logo: "/images/brand/brand-01.svg",
     name: "Google",
@@ -110,7 +102,7 @@ const TableFour: React.FC = () => {
 
               <div className="flex items-center justify-center p-2.5 xl:p-5">
                 <p className="font-medium text-black dark:text-white">
-                  {`${brand.visitors}`}K
+                  {brand.visitors}K
                 </p>
               </div>
 
@@ -119,7 +111,7 @@ const TableFour: React.FC = () => {
               </div>
 
               <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
-                <p className="font-medium text-meta-5">{`${brand.conversion}`}%</p>
+                <p className="font-medium text-meta-5">{brand.conversion}%</p>
               </div>
             </div>
           ))}
