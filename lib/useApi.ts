@@ -1,6 +1,10 @@
 "use client";
 
 import getConfig from "next/config";
+import toast from "react-hot-toast";
+
+import { useAppSelector } from "@/redux/store";
+import { use } from "react";
 
 type Headers = {
   [key: string]: string;
@@ -27,22 +31,30 @@ type Headers = {
 //   return data as T;
 // };
 
-export default async function useApiBase(path: string, options: any) {
-  // const { publicRuntimeConfig } = getConfig();
+export default async function useApiBase<T>(
+  path: string,
+  options: any
+): Promise<T | null> {
   const headers: Headers = {
     "Content-Type": "application/json",
   };
 
-  const response = await fetch("https://mauth.ratchaphon1412.co" + path, {
+  return fetch(process.env.NEXT_PUBLIC_BASEURL + path, {
     ...options,
-
     headers: {
       ...headers,
       ...options?.headers,
     },
+  }).then(async (response) => {
+    if (response.ok) {
+      toast.success("Success");
+      const data = await response.json();
+      console.log("data", data);
+      return data as T;
+    }
+    const textError = await response.text();
+    toast.error(textError);
+
+    return null as T;
   });
-
-  const data = await response.json();
-
-  return data;
 }

@@ -4,11 +4,27 @@ import Logo from "@/app/components/logo";
 import Cart from "@/app/store/components/cart";
 import { useState } from "react";
 import { useClickAway } from "@uidotdev/usehooks";
+import { useAppSelector } from "@/redux/store";
+import { Avatar, Dropdown } from "flowbite-react";
+import { logOut } from "@/redux/features/auth-slice";
+
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@/redux/store";
+
 export default function Component() {
   const [isToggled, toggle] = useState(false);
 
   const [isToggledHum, setToggleHum] = useState(false);
   const [openCart, setOpenCart] = useState(false);
+
+  const login = useAppSelector((state) => state.authReducer.isAuth);
+  const userProfile = useAppSelector((state) => state.authReducer.user);
+  const dispatch = useDispatch<AppDispatch>();
+
+  const logout = () => {
+    dispatch(logOut());
+    window.location.href = "/";
+  };
 
   const ref = useClickAway<HTMLDivElement>(() => {
     toggle(false);
@@ -127,18 +143,57 @@ export default function Component() {
               </svg>
             </button>
             <div className="border-l-2 border-gray-400 h-[30px]"></div>
-            <a
-              className="items-center justify-center rounded-xl font-pixellet px-3 py-2 text-sm font-semibold text-white hover:text-black shadow-sm hover:ring-1 hover:ring-inset hover:ring-gray-300 transition-all duration-150 hover:bg-gray-50 sm:inline-flex"
-              href="/auth/register"
-            >
-              Sign in
-            </a>
-            <a
-              className="inline-flex items-center justify-center font-pixellet rounded-xl bg-amber-400 px-3 py-2 text-sm font-semibold text-black shadow-sm transition-all duration-150 hover:bg-amber-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-              href="/auth/login"
-            >
-              Login
-            </a>
+
+            {!login ? (
+              <div>
+                <a
+                  className="items-center justify-center rounded-xl font-pixellet px-3 py-2 text-sm font-semibold text-white hover:text-black shadow-sm hover:ring-1 hover:ring-inset hover:ring-gray-300 transition-all duration-150 hover:bg-gray-50 sm:inline-flex"
+                  href="/auth/register"
+                >
+                  Sign in
+                </a>
+                <a
+                  className="inline-flex items-center justify-center font-pixellet rounded-xl bg-amber-400 px-3 py-2 text-sm font-semibold text-black shadow-sm transition-all duration-150 hover:bg-amber-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                  href="/auth/login"
+                >
+                  Login
+                </a>
+              </div>
+            ) : (
+              <Dropdown
+                arrowIcon={false}
+                inline
+                label={
+                  <Avatar
+                    alt="User settings"
+                    img={userProfile.profile}
+                    className="px-2"
+                    rounded
+                  />
+                }
+              >
+                <Dropdown.Header>
+                  <span className="block text-sm">{userProfile.username}</span>
+                  <span className="block truncate text-sm font-medium">
+                    {userProfile.email}
+                  </span>
+                </Dropdown.Header>
+                <Dropdown.Item>Dashboard</Dropdown.Item>
+                <Dropdown.Item>Settings</Dropdown.Item>
+                <Dropdown.Item>Earnings</Dropdown.Item>
+                <Dropdown.Divider />
+                <Dropdown.Item>
+                  <div
+                    onClick={(e) => {
+                      e.preventDefault();
+                      logout();
+                    }}
+                  >
+                    Sign out
+                  </div>
+                </Dropdown.Item>
+              </Dropdown>
+            )}
           </div>
         </div>
       </div>

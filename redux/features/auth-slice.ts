@@ -1,25 +1,18 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import useApiBase from "../../lib/useApi";
 
-type InitialState = {
-  value: AuthState;
-};
-
-type AuthState = {
+export interface AuthState {
+  acessToken: string;
+  refreshToken: string;
   isAuth: boolean;
-  username: string;
-  uid: string;
-  isModerator: boolean;
-};
+  user: any;
+}
 
-const initialState = {
-  value: {
-    isAuth: false,
-    username: "",
-    uid: "",
-    isModerator: false,
-  }, // as AuthState
-} as InitialState;
+const initialState: AuthState = {
+  acessToken: "",
+  refreshToken: "",
+  isAuth: false,
+  user: null,
+};
 
 export const auth = createSlice({
   name: "auth",
@@ -28,20 +21,19 @@ export const auth = createSlice({
     logOut: () => {
       return initialState;
     },
-    logIn: (state, action: PayloadAction<string>) => {
-      return {
-        value: {
-          isAuth: true,
-          username: action.payload,
-          uid: "sadasdasda",
-          isModerator: false,
-        },
-      };
+    logIn: (state, action: PayloadAction<any>) => {
+      console.log("action", action);
+      state.acessToken = action.payload.access;
+      state.refreshToken = action.payload.refresh;
+    },
+    authSuccess: (state, action: PayloadAction<any>) => {
+      state.isAuth = true;
+      state.user = action.payload;
     },
   },
 });
 
-export const { logIn, logOut } = auth.actions;
+export const { logIn, logOut, authSuccess } = auth.actions;
 export default auth.reducer;
 
 // example

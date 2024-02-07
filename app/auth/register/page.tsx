@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 import useApiBase from "@/lib/useApi";
+import toast from "react-hot-toast";
+
 async function register(formRegisterData: any) {
   if (formRegisterData.password !== formRegisterData.confirmPassword) {
     return {
@@ -9,12 +11,22 @@ async function register(formRegisterData: any) {
     };
   }
 
-  const response = await useApiBase("/api/user/register", {
+  const payload = {
+    first_name: formRegisterData.fistname,
+    last_name: formRegisterData.lastname,
+    username: formRegisterData.username,
+    email: formRegisterData.email,
+    phone_number: formRegisterData.phone,
+    gender: formRegisterData.gender,
+    country: formRegisterData.country,
+    profile: formRegisterData.profile,
+    password: formRegisterData.password,
+  };
+
+  const response = await useApiBase("/api/user/register/", {
     method: "POST",
-    body: JSON.stringify(formRegisterData),
+    body: JSON.stringify(payload),
   });
-  console.log("response", response);
-  return response;
 }
 
 export default function RegisterPage() {
