@@ -1,3 +1,5 @@
+"use server";
+
 import getConfig from "next/config";
 
 type Headers = {
@@ -19,6 +21,7 @@ export const useApiBase = async <T>(path: string, options: any) => {
       ...options?.headers,
     },
   });
+
   console.log("response", res);
   const data = await res.json();
   return data as T;

@@ -7,6 +7,7 @@ import { useClickAway } from "@uidotdev/usehooks";
 export default function Component() {
   const [isToggled, toggle] = useState(false);
 
+  const [isToggledHum, setToggleHum] = useState(false);
   const [openCart, setOpenCart] = useState(false);
 
   const ref = useClickAway<HTMLDivElement>(() => {
@@ -21,12 +22,16 @@ export default function Component() {
     setOpenCart(!openCart);
   };
 
+  const toggleHumbergerCallback = () => {
+    setToggleHum(!isToggledHum);
+  };
+
   return (
     <header
       ref={ref}
-      className="fixed inset-x-0 top-0 z-30 mx-auto w-full max-w-screen-2xl bg-black py-3 shadow backdrop-blur-lg md:top-6 md:rounded-3xl lg:max-w-screen-4xl border border-gray-500"
+      className="fixed inset-x-0 top-0 z-30 mx-auto  w-full max-w-screen-2xl bg-black py-4 px-2  shadow backdrop-blur-lg md:top-6 md:rounded-2xl lg:max-w-screen-4xl border border-gray-500"
     >
-      <div className="px-4">
+      <div className="px-4 hidden md:block">
         <div className="flex items-center justify-between">
           <div className="flex shrink-0">
             <a aria-current="page" className="flex items-center" href="/">
@@ -137,9 +142,14 @@ export default function Component() {
           </div>
         </div>
       </div>
+      {/*
+      Menu open: "block", Menu closed: "hidden"
+      */}
       <div
         id="tabs-1-panel-1"
-        className={isToggled ? "space-y-10 px-4 pb-8 pt-10" : "hidden"}
+        className={
+          isToggled ? "space-y-10 px-4 pb-8 pt-10 hidden md:block" : "hidden"
+        }
         aria-labelledby="tabs-1-tab-1"
         role="tabpanel"
       >
@@ -320,6 +330,99 @@ export default function Component() {
           </div>
         </div>
       </div>
+      {/* 
+        mobile navbar
+      */}
+      <div className="px-4 md:hidden">
+        <div className="flex items-center justify-between">
+          <div className="flex shrink-0">
+            <a aria-current="page" className="flex items-center" href="/">
+              {/* <img
+                  className="h-7 w-auto"
+                  src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
+                  alt=""
+                /> */}
+              <Logo class="h-5" />
+              <p className="text-white font-pixelletMedium">Pixel Man</p>
+            </a>
+          </div>
+          {/*
+            Hamburger button, show/hide based on menu open state.
+          */}
+          <button
+            onClick={toggleHumbergerCallback}
+            data-collapse-toggle="navbar-hamburger"
+            type="button"
+            className="inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-hamburger"
+            aria-expanded="false"
+          >
+            <span className="sr-only">Open main menu</span>
+            <svg
+              className="w-5 h-5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 17 14"
+            >
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M1 1h15M1 7h15M1 13h15"
+              />
+            </svg>
+          </button>
+        </div>
+
+        {/*
+            Mobile menu, toggle classes based on menu state.
+
+            Open: "block", closed: "hidden"
+          */}
+        <div
+          className={isToggledHum ? "w-full" : "hidden w-full"}
+          id="navbar-hamburger"
+        >
+          <ul className="flex flex-col font-medium mt-4 rounded-lg border-gray-700">
+            <li>
+              <a
+                href="#"
+                className="block py-2 px-3 text-white bg-blue-600"
+                aria-current="page"
+              >
+                Story
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="block py-2 px-3 rounded  text-gray-400 hover:bg-gray-700 hover:text-white"
+              >
+                Shop
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="block py-2 px-3 rounded  text-gray-400 md:dark:hover:text-white hover:bg-gray-700 hover:text-white"
+              >
+                Gallery
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="block py-2 px-3 rounded  text-gray-400 hover:bg-gray-700 hover:text-white"
+              >
+                Login
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <Cart showCart={openCart} toggleCart={toggleCartCallback} />
     </header>
   );

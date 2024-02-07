@@ -14,9 +14,11 @@ export default async function Home() {
     <main className="overflow-hidden">
       <FirstSection />
       <Category />
-      <SecondSection />
-      <SecondSection2 />
-      <SecondSection />
+      <div className="gap-4">
+        <SecondSection />
+        <SecondSection2 />
+        <SecondSection />
+      </div>
 
       <ThirdSection />
       {/* <FourthSection /> */}
