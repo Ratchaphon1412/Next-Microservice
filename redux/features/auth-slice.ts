@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { useApiBase } from "../../lib/useApi";
+import useApiBase from "../../lib/useApi";
 
 type InitialState = {
   value: AuthState;

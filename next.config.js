@@ -2,7 +2,7 @@
 const nextConfig = {
     publicRuntimeConfig: {
         // Will be available on both server and client
-        base_url: process.env.BASE_URL,
+        baseURL: process.env.BASE_URL || 'https://microserivce.kong.ratchaphon1412.co:8443',
     },
 }
 

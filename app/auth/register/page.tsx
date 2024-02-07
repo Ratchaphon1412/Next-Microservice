@@ -1,5 +1,21 @@
 "use client";
 import { useState } from "react";
+import useApiBase from "@/lib/useApi";
+async function register(formRegisterData: any) {
+  if (formRegisterData.password !== formRegisterData.confirmPassword) {
+    return {
+      status: "error",
+      message: "Password and Confirm Password not match",
+    };
+  }
+
+  const response = await useApiBase("/api/user/register", {
+    method: "POST",
+    body: JSON.stringify(formRegisterData),
+  });
+  console.log("response", response);
+  return response;
+}
 
 export default function RegisterPage() {
   const [formRegister, setFromRegister] = useState({
@@ -232,6 +248,10 @@ export default function RegisterPage() {
             </div>
             <button
               type="submit"
+              onClick={async (e) => {
+                e.preventDefault();
+                await register(formRegister);
+              }}
               className="btn w-full text-black bg-amber-400 hover:bg-amber-500 text-2xl"
             >
               Submit
