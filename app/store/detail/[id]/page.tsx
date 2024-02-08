@@ -1,7 +1,7 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 
 import useApiBase from "@/lib/useApi";
 
@@ -29,7 +29,28 @@ export default function Detail() {
   const [sizeSelected, setSizeSelected] = useState<string>("");
   const { id } = useParams();
 
-  async function addCart() {}
+  async function addCart() {
+    const response = await useApiBase(
+      process.env.NEXT_PUBLIC_BASEURL_AUTH + "/api/user/cart/",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          product_id: parseInt(product?.id),
+          name: product?.name,
+          price: product?.price,
+          image:
+            "https://storage.ratchaphon1412.co/" + product?.images[0]?.path,
+
+          category: product?.category.name,
+          quantity: 1,
+          size: sizeSelected,
+          color: colorSelected,
+        }),
+      }
+    );
+    if (response != null) {
+    }
+  }
 
   async function getDetail() {
     const response: ProductInterface | null = await useApiBase(
@@ -39,6 +60,7 @@ export default function Detail() {
         body: JSON.stringify({
           query: `{
           findProduct(id:${id}){
+            id
             name
             price
             gender
@@ -330,9 +352,13 @@ export default function Detail() {
 
               <button
                 type="submit"
+                onClick={async (e) => {
+                  e.preventDefault();
+                  await addCart();
+                }}
                 className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
-                Add to bag
+                Add to cart
               </button>
             </form>
           </div>

@@ -1,10 +1,6 @@
 "use client";
 
-import getConfig from "next/config";
 import toast from "react-hot-toast";
-
-import { useAppSelector } from "@/redux/store";
-import { use } from "react";
 
 type Headers = {
   [key: string]: string;
@@ -39,6 +35,10 @@ export default async function useApiBase<T>(
     "Content-Type": "application/json",
   };
 
+  if (localStorage.getItem("accessToken")) {
+    headers["Authorization"] = `Bearer ${localStorage.getItem("accessToken")}`;
+  }
+
   return await fetch(path, {
     ...options,
     headers: {
@@ -49,11 +49,60 @@ export default async function useApiBase<T>(
     if (response.ok) {
       toast.success("Success");
       const data = await response.json();
-      console.log("data", data);
+      console.log("data", data.status);
       return data as T;
     }
-    const textError = await response.text();
-    toast.error(textError);
+
+    if (response.status === 401) {
+      toast.error("Unauthorized");
+      await fetch(
+        process.env.NEXT_PUBLIC_BASEURL_AUTH + "/api/user/token/refresh/",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            refresh: localStorage.getItem("refreshToken"),
+          }),
+        }
+      ).then(async (response) => {
+        await response.json();
+        if (response.ok) {
+          toast.success("Refresh Success");
+          const data = await response.json();
+
+          console.log("data", data);
+          localStorage.setItem("accessToken", data.access);
+
+          const headers: Headers = {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          };
+
+          const res = await fetch(path, {
+            ...options,
+            headers: {
+              ...headers,
+              ...options?.headers,
+            },
+          });
+
+          console.log("response", res);
+
+          const dataAgain = await res.json();
+
+          console.log("dataAgain", dataAgain);
+          return dataAgain as T;
+        } else {
+          return null as T;
+        }
+      });
+
+      return null as T;
+    } else if (response.status !== 500) {
+      const textError = await response.text();
+      toast.error(textError);
+    } else {
+      toast.error("Some thing wrong");
+    }
 
     return null as T;
   });

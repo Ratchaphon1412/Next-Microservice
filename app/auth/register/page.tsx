@@ -23,10 +23,17 @@ async function register(formRegisterData: any) {
     password: formRegisterData.password,
   };
 
-  const response = await useApiBase("/api/user/register/", {
-    method: "POST",
-    body: JSON.stringify(payload),
-  });
+  const response = await useApiBase(
+    process.env.NEXT_PUBLIC_BASEURL_AUTH + "/api/user/register/",
+    {
+      method: "POST",
+      body: JSON.stringify(payload),
+    }
+  );
+
+  if (response != null) {
+    window.location.href = "/auth/login";
+  }
 }
 
 export default function RegisterPage() {

@@ -21,21 +21,27 @@ export default function Login() {
   const dispatch = useDispatch<AppDispatch>();
 
   const onClickLogIn = async () => {
-    const response = await useApiBase<JSON | null>("/api/user/token/", {
-      method: "POST",
-      body: JSON.stringify(formLogin),
-    });
+    const response = await useApiBase<JSON | null>(
+      process.env.NEXT_PUBLIC_BASEURL_AUTH + "/api/user/token/",
+      {
+        method: "POST",
+        body: JSON.stringify(formLogin),
+      }
+    );
     console.log(response);
     if (response != null) {
       dispatch(logIn(response));
       // authentication
 
-      const auth = await useApiBase<JSON | null>("/api/user/profile/", {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const auth = await useApiBase<JSON | null>(
+        process.env.NEXT_PUBLIC_BASEURL_AUTH + "/api/user/profile/",
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
+      );
       console.log(auth);
       if (auth != null) {
         dispatch(authSuccess(auth));

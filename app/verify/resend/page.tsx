@@ -7,13 +7,17 @@ export default function ForgetPage() {
   const [useEmail, setUseEmail] = useState("");
 
   async function handleSubmit() {
-    const response = await useApiBase<JSON | null>(`/api/user/reverify/`, {
-      method: "POST",
-      body: JSON.stringify({ email: useEmail }),
-    });
+    const response = await useApiBase<JSON | null>(
+      process.env.NEXT_PUBLIC_BASEURL_AUTH + `/api/user/reverify/`,
+      {
+        method: "POST",
+        body: JSON.stringify({ email: useEmail }),
+      }
+    );
 
     if (response != null) {
       console.log(response);
+      window.location.href = "/auth/login";
     }
   }
 

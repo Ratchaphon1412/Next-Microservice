@@ -1,17 +1,31 @@
-export default function Item() {
+export default function Item({
+  name,
+  color,
+  size,
+  quantity,
+  price,
+  image,
+}: {
+  name: string;
+  color: string;
+  size: string;
+  quantity: number;
+  price: number;
+  image: string;
+}) {
   return (
     <div className="flex flex-col  rounded-lg  sm:flex-row">
       <img
         className="m-2 h-24 w-28 rounded-md border object-cover object-center"
-        src="https://images.unsplash.com/flagged/photo-1556637640-2c80d3201be8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+        src={image}
         alt=""
       />
       <div className="flex w-full flex-col px-4 py-4">
-        <span className="font-semibold">
-          Nike Air Max Pro 8888 - Super Light
+        <span className="font-semibold">{name}</span>
+        <span className="float-right text-gray-400">
+          color: {color} , size: {size} , quantity: {quantity}
         </span>
-        <span className="float-right text-gray-400">42EU - 8.5US</span>
-        <p className="text-lg font-bold">$138.99</p>
+        <p className="text-lg font-bold">฿{price}</p>
       </div>
     </div>
   );

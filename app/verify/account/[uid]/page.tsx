@@ -12,13 +12,17 @@ export default function verifyEmail({ params }: { params: { uid: string } }) {
     console.log("original", params.uid);
     console.log("decode", decode);
 
-    const response = await useApiBase<JSON | null>(`/api/user/token/verify/`, {
-      method: "POST",
-      body: JSON.stringify({ token: decode }),
-    });
+    const response = await useApiBase<JSON | null>(
+      process.env.NEXT_PUBLIC_BASEURL_AUTH + `/api/user/active/`,
+      {
+        method: "POST",
+        body: JSON.stringify({ token: decode }),
+      }
+    );
 
     if (response != null) {
       console.log(response);
+      window.location.href = "/auth/login";
     }
   };
 

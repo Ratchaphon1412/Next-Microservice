@@ -12,15 +12,48 @@ import { ModalSearch } from "./ModalSearch";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
 
+import useApiBase from "@/lib/useApi";
+
+interface CartTotal {
+  [key: string]: any;
+}
+
+interface ItemProduct {
+  [key: string]: any;
+}
+interface CartFetch {
+  [key: string]: [ItemProduct];
+}
+
 export default function Component() {
   const [isToggled, toggle] = useState(false);
   const [searchToggle, setSearchToggle] = useState(false);
   const [isToggledHum, setToggleHum] = useState(false);
   const [openCart, setOpenCart] = useState(false);
+  const [cart, setCart] = useState<Array<ItemProduct>>([]);
+  const [total, setTotal] = useState<CartTotal>({});
 
   const login = useAppSelector((state) => state.authReducer.isAuth);
   const userProfile = useAppSelector((state) => state.authReducer.user);
   const dispatch = useDispatch<AppDispatch>();
+
+  async function getCart() {
+    const res = await useApiBase<CartFetch>(
+      process.env.NEXT_PUBLIC_BASEURL_AUTH + "/api/user/cart/",
+      {
+        method: "GET",
+      }
+    );
+
+    if (res != null) {
+      console.log(res);
+      setCart(res.cart);
+      setTotal(res.shopping_cart);
+
+      return "";
+    }
+    return null;
+  }
 
   const searchHandler = () => {
     setSearchToggle(!searchToggle);
@@ -39,7 +72,11 @@ export default function Component() {
     toggle(!isToggled);
   };
 
-  const toggleCartCallback = () => {
+  const toggleCartCallback = async () => {
+    const check = await getCart();
+    if (check == null) {
+      return;
+    }
     setOpenCart(!openCart);
   };
 
@@ -265,9 +302,13 @@ export default function Component() {
                       {userProfile.email}
                     </span>
                   </Dropdown.Header>
-                  <Dropdown.Item>Dashboard</Dropdown.Item>
-                  <Dropdown.Item>Settings</Dropdown.Item>
-                  <Dropdown.Item>Earnings</Dropdown.Item>
+                  <Dropdown.Item>
+                    <a href="/store">Shop</a>
+                  </Dropdown.Item>
+                  <Dropdown.Item>
+                    <a href="/auth/setting">Settings</a>
+                  </Dropdown.Item>
+
                   <Dropdown.Divider />
                   <Dropdown.Item>
                     <div
@@ -571,7 +612,14 @@ export default function Component() {
           </div>
         </div>
 
-        <Cart showCart={openCart} toggleCart={toggleCartCallback} />
+        {openCart && (
+          <Cart
+            showCart={openCart}
+            toggleCart={toggleCartCallback}
+            products={cart}
+            total={total.total}
+          />
+        )}
       </header>
     </>
   );
