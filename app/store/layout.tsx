@@ -1,13 +1,21 @@
+"use client";
 import { Children } from "react";
 import Link from "next/link";
 import Navbar from "@/app/components/navbar";
 import Footer from "@/app/components/footer";
+import { useState } from "react";
 
 export default function StoreLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const [sortToggle, setSortToggle] = useState(false);
+
+  function handleSortToggle() {
+    setSortToggle(!sortToggle);
+  }
+
   return (
     <>
       <Navbar />
@@ -479,6 +487,7 @@ export default function StoreLayout({
                       id="menu-button"
                       aria-expanded="false"
                       aria-haspopup="true"
+                      onClick={handleSortToggle}
                     >
                       Sort
                       <svg
@@ -496,61 +505,63 @@ export default function StoreLayout({
                     </button>
                   </div>
 
-                  <div
-                    className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none"
-                    role="menu"
-                    aria-orientation="vertical"
-                    aria-labelledby="menu-button"
-                    tabIndex={-1}
-                  >
-                    <div className="py-1" role="none">
-                      <Link
-                        href="#"
-                        className="font-medium text-gray-900 block px-4 py-2 text-sm"
-                        role="menuitem"
-                        tabIndex={-1}
-                        id="menu-item-0"
-                      >
-                        Most Popular
-                      </Link>
-                      <Link
-                        href="#"
-                        className="text-gray-500 block px-4 py-2 text-sm"
-                        role="menuitem"
-                        tabIndex={-1}
-                        id="menu-item-1"
-                      >
-                        Best Rating
-                      </Link>
-                      <Link
-                        href="#"
-                        className="text-gray-500 block px-4 py-2 text-sm"
-                        role="menuitem"
-                        tabIndex={-1}
-                        id="menu-item-2"
-                      >
-                        Newest
-                      </Link>
-                      <Link
-                        href="#"
-                        className="text-gray-500 block px-4 py-2 text-sm"
-                        role="menuitem"
-                        tabIndex={-1}
-                        id="menu-item-3"
-                      >
-                        Price: Low to High
-                      </Link>
-                      <Link
-                        href="#"
-                        className="text-gray-500 block px-4 py-2 text-sm"
-                        role="menuitem"
-                        tabIndex={-1}
-                        id="menu-item-4"
-                      >
-                        Price: High to Low
-                      </Link>
+                  {sortToggle && (
+                    <div
+                      className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none"
+                      role="menu"
+                      aria-orientation="vertical"
+                      aria-labelledby="menu-button"
+                      tabIndex={-1}
+                    >
+                      <div className="py-1" role="none">
+                        <Link
+                          href="#"
+                          className="font-medium text-gray-900 block px-4 py-2 text-sm"
+                          role="menuitem"
+                          tabIndex={-1}
+                          id="menu-item-0"
+                        >
+                          Most Popular
+                        </Link>
+                        <Link
+                          href="#"
+                          className="text-gray-500 block px-4 py-2 text-sm"
+                          role="menuitem"
+                          tabIndex={-1}
+                          id="menu-item-1"
+                        >
+                          Best Rating
+                        </Link>
+                        <Link
+                          href="#"
+                          className="text-gray-500 block px-4 py-2 text-sm"
+                          role="menuitem"
+                          tabIndex={-1}
+                          id="menu-item-2"
+                        >
+                          Newest
+                        </Link>
+                        <Link
+                          href="#"
+                          className="text-gray-500 block px-4 py-2 text-sm"
+                          role="menuitem"
+                          tabIndex={-1}
+                          id="menu-item-3"
+                        >
+                          Price: Low to High
+                        </Link>
+                        <Link
+                          href="#"
+                          className="text-gray-500 block px-4 py-2 text-sm"
+                          role="menuitem"
+                          tabIndex={-1}
+                          id="menu-item-4"
+                        >
+                          Price: High to Low
+                        </Link>
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
 
                 <button

@@ -26,6 +26,10 @@ body {
     rgb(var(--background-start-rgb));
 } */
 
+dialog {
+  background: transparent;
+}
+
 .slideshowSlider {
   white-space: nowrap;
   transition: ease 1000ms;
@@ -85,7 +89,6 @@ body {
   opacity: 1;
 }
 
-
 .hero {
   display: grid;
   place-items: center;
@@ -112,9 +115,8 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  
 }
-.st--section-c img{
+.st--section-c img {
   width: 200px;
   height: 350px;
   object-fit: cover;
@@ -123,7 +125,7 @@ body {
 }
 
 @media screen and (min-width: 1440px) {
-  .st--section-c img{
+  .st--section-c img {
     width: 300px;
     height: 700px;
   }
@@ -134,7 +136,6 @@ body {
   height: 70rem;
   top: 35rem;
   filter: drop-shadow(0 0 5rem white);
- 
 }
 
 .hero img:nth-child(2) {
@@ -142,38 +143,32 @@ body {
   height: 65rem;
   top: 55rem;
   filter: drop-shadow(0 0 0.75rem black);
-  
 }
 .hero img:nth-child(3) {
   width: 65rem;
   height: 60rem;
   top: 75rem;
   filter: drop-shadow(0 0 0.75rem black);
-  
 }
 .hero img:nth-child(4) {
   width: 60rem;
   height: 55rem;
   top: 180rem;
-  
 }
 .hero img:nth-child(5) {
   width: 55rem;
   height: 50rem;
   top: 225rem;
- 
 }
 .hero img:nth-child(6) {
   width: 45rem;
   height: 40rem;
   top: 270rem;
- 
 }
 .hero img:nth-child(7) {
   width: 70rem;
   height: 65rem;
   top: 315rem;
- 
 }
 
 .gallery-right-inner > img {
@@ -184,15 +179,12 @@ body {
 .container-pixel {
   display: flex;
   flex-direction: column;
-  gap: 1em
+  gap: 1em;
 }
-
-
 
 .container-pixel.reorder {
   gap: 0.5em;
   flex-direction: row;
-  
 }
 
 @font-face {

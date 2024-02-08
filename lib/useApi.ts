@@ -39,7 +39,7 @@ export default async function useApiBase<T>(
     "Content-Type": "application/json",
   };
 
-  return fetch(process.env.NEXT_PUBLIC_BASEURL + path, {
+  return await fetch(path, {
     ...options,
     headers: {
       ...headers,
