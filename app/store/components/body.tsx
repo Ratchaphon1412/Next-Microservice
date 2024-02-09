@@ -19,7 +19,7 @@ type Products = {
 export default async function Components() {
   const [data, setData] = useState<Products | null>(null);
 
-  async function getProducts() {
+  async function GetProducts() {
     const response = await useApiBase<Products>(
       process.env.NEXT_PUBLIC_BASEURL_PRODUCT + "/public/graphql",
       {
@@ -62,7 +62,7 @@ export default async function Components() {
   }
 
   useEffect(() => {
-    getProducts();
+    GetProducts();
   }, []);
 
   return (
@@ -71,6 +71,7 @@ export default async function Components() {
         {data?.data.products.data.map((product) => {
           return (
             <Card
+              key={product.id}
               id={product.id}
               images={product.images}
               name={product.name}

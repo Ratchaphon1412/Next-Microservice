@@ -18,7 +18,7 @@ const Settings = () => {
   const addressData = useAppSelector((state) => state.authReducer.address);
   const dispatch = useDispatch<AppDispatch>();
 
-  async function loadAddressData() {
+  async function LoadAddressData() {
     const res: any = await useApiBase(
       process.env.NEXT_PUBLIC_BASEURL_AUTH + "/api/user/address/",
       {
@@ -31,7 +31,7 @@ const Settings = () => {
     }
   }
 
-  async function getProfile() {
+  async function GetProfile() {
     const auth = await useApiBase<JSON | null>(
       process.env.NEXT_PUBLIC_BASEURL_AUTH + "/api/user/profile/",
       {
@@ -48,8 +48,8 @@ const Settings = () => {
   }
 
   useEffect(() => {
-    getProfile();
-    loadAddressData();
+    GetProfile();
+    LoadAddressData();
   }, []);
   return (
     <>

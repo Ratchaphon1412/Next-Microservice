@@ -51,7 +51,42 @@ export default function Checkout() {
 
   const dispatch = useDispatch<AppDispatch>();
 
-  async function payment() {
+  async function DeleteCartItem(item: any) {
+    await useApiBase(process.env.NEXT_PUBLIC_BASEURL_AUTH + "/api/user/cart/", {
+      method: "DELETE",
+      body: JSON.stringify({
+        product_id: item.product.id,
+        color: item.color,
+        size: item.size,
+      }),
+    });
+  }
+
+  async function DeleteCart(res: any) {
+    cart.map(async (item) => {
+      await DeleteCartItem(item);
+    });
+    window.location.href = res?.Charge.authorize_uri;
+    return;
+  }
+
+  async function AuthorizationPayment(token: any) {
+    const res = await useApiBase<ChargeToken>(
+      process.env.NEXT_PUBLIC_BASEURL_PAYMENT +
+        `/omise/charge-credit-card/${user.id}`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          token: token?.id,
+          amount: total.total * 100,
+        }),
+      }
+    );
+
+    return res;
+  }
+
+  async function Payment() {
     const token = await useApiBase<ResponseToken>(
       process.env.NEXT_PUBLIC_BASEURL_PAYMENT + "/omise/token",
       {
@@ -67,45 +102,16 @@ export default function Checkout() {
         }),
       }
     );
-
-    if (token != null) {
-      console.log(token.id);
-
-      const res = await useApiBase<ChargeToken>(
-        process.env.NEXT_PUBLIC_BASEURL_PAYMENT +
-          `/omise/charge-credit-card/${user.id}`,
-        {
-          method: "POST",
-          body: JSON.stringify({
-            token: token.id,
-            amount: total.total * 100,
-          }),
-        }
-      );
-
-      if (res != null) {
-        // delete all cart
-        cart.map(async (item) => {
-          await useApiBase(
-            process.env.NEXT_PUBLIC_BASEURL_AUTH + "/api/user/cart/",
-            {
-              method: "DELETE",
-              body: JSON.stringify({
-                product_id: item.product.id,
-                color: item.color,
-                size: item.size,
-              }),
-            }
-          );
-        });
-
-        console.log(res.Charge.authorize_uri);
-        window.location.href = res.Charge.authorize_uri;
-      }
-    }
+    return token;
   }
 
-  async function loadAddressData() {
+  async function Order() {
+    const token = await Payment();
+    const res = await AuthorizationPayment(token);
+    DeleteCart(res);
+  }
+
+  async function LoadAddressData() {
     const res: any = await useApiBase(
       process.env.NEXT_PUBLIC_BASEURL_AUTH + "/api/user/address/",
       {
@@ -118,7 +124,7 @@ export default function Checkout() {
     }
   }
 
-  async function getCart() {
+  async function GetCart() {
     const res = await useApiBase<Cart>(
       process.env.NEXT_PUBLIC_BASEURL_AUTH + "/api/user/cart/",
       {
@@ -134,8 +140,8 @@ export default function Checkout() {
   }
 
   useEffect(() => {
-    getCart();
-    loadAddressData();
+    GetCart();
+    LoadAddressData();
   }, []);
 
   return (
@@ -150,6 +156,7 @@ export default function Checkout() {
             {cart.map((item: Item) => {
               return (
                 <Item
+                  key={item.product.id}
                   name={item.product.name}
                   color={item.color}
                   size={item.size}
@@ -168,9 +175,9 @@ export default function Checkout() {
           <p className="mt-8 text-lg font-medium">Address</p>
           <form className="mt-5 grid gap-6">
             {address.length > 0 ? (
-              address?.map((addressItem) => {
+              address?.map((addressItem, index) => {
                 return (
-                  <div className="flex  ">
+                  <div className="flex  " key={index}>
                     <div className="flex-1 py-5 pl-5 overflow-hidden ">
                       <ul>
                         <li className="text-xs text-white uppercase ">
@@ -221,7 +228,7 @@ export default function Checkout() {
           total={total.total}
           setCreditCard={setCreditCard}
           creditCard={creditCard}
-          payment={payment}
+          payment={Order}
         />
       </div>
     </div>

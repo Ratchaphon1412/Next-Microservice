@@ -13,7 +13,7 @@ type ProductInterface = {
   [key: string]: FindProduct;
 };
 
-export function ColorShow({ colorHex }: { colorHex: string }) {
+function ColorShow({ colorHex }: { colorHex: string }) {
   return (
     <span
       aria-hidden="true"
@@ -29,7 +29,7 @@ export default function Detail() {
   const [sizeSelected, setSizeSelected] = useState<string>("");
   const { id } = useParams();
 
-  async function addCart() {
+  async function AddCart() {
     const response = await useApiBase(
       process.env.NEXT_PUBLIC_BASEURL_AUTH + "/api/user/cart/",
       {
@@ -52,7 +52,7 @@ export default function Detail() {
     }
   }
 
-  async function getDetail() {
+  async function GetDetail() {
     const response: ProductInterface | null = await useApiBase(
       process.env.NEXT_PUBLIC_BASEURL_PRODUCT + "/public/graphql",
       {
@@ -101,7 +101,7 @@ export default function Detail() {
   }
 
   useEffect(() => {
-    getDetail();
+    GetDetail();
   }, []);
 
   return (
@@ -160,9 +160,12 @@ export default function Detail() {
         </nav>
 
         <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
-          {product?.images?.map((imageItem: FindProduct) => {
+          {product?.images?.map((imageItem: FindProduct, index: number) => {
             return (
-              <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
+              <div
+                className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block"
+                key={index}
+              >
                 <img
                   src={"https://storage.ratchaphon1412.co/" + imageItem.path}
                   alt="Two each of gray, white, and black shirts laying flat."
@@ -354,7 +357,7 @@ export default function Detail() {
                 type="submit"
                 onClick={async (e) => {
                   e.preventDefault();
-                  await addCart();
+                  await AddCart();
                 }}
                 className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >

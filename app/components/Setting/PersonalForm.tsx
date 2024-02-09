@@ -31,7 +31,7 @@ export default function PersonalForm({
   const [country, setCountry] = useState(user.country);
   const [addressid, setAddressID] = useState(1);
 
-  async function updateProfile() {
+  async function UpdateProfile() {
     if (address.length != 0) {
       setAddressID(parseInt(address[0].id));
     }
@@ -218,7 +218,7 @@ export default function PersonalForm({
               color="warning"
               onClick={async (e) => {
                 e.preventDefault();
-                await updateProfile();
+                await UpdateProfile();
               }}
             >
               {" "}

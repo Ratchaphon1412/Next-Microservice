@@ -3,39 +3,6 @@ import { useState } from "react";
 import useApiBase from "@/lib/useApi";
 import toast from "react-hot-toast";
 
-async function register(formRegisterData: any) {
-  if (formRegisterData.password !== formRegisterData.confirmPassword) {
-    return {
-      status: "error",
-      message: "Password and Confirm Password not match",
-    };
-  }
-
-  const payload = {
-    first_name: formRegisterData.fistname,
-    last_name: formRegisterData.lastname,
-    username: formRegisterData.username,
-    email: formRegisterData.email,
-    phone_number: formRegisterData.phone,
-    gender: formRegisterData.gender,
-    country: formRegisterData.country,
-    profile: formRegisterData.profile,
-    password: formRegisterData.password,
-  };
-
-  const response = await useApiBase(
-    process.env.NEXT_PUBLIC_BASEURL_AUTH + "/api/user/register/",
-    {
-      method: "POST",
-      body: JSON.stringify(payload),
-    }
-  );
-
-  if (response != null) {
-    window.location.href = "/auth/login";
-  }
-}
-
 export default function RegisterPage() {
   const [formRegister, setFromRegister] = useState({
     fistname: "",
@@ -49,6 +16,38 @@ export default function RegisterPage() {
     password: "",
     confirmPassword: "",
   });
+
+  async function Register(formRegisterData: any) {
+    if (formRegisterData.password !== formRegisterData.confirmPassword) {
+      toast.error("Password not match");
+    }
+
+    const payload = {
+      first_name: formRegisterData.fistname,
+      last_name: formRegisterData.lastname,
+      username: formRegisterData.username,
+      email: formRegisterData.email,
+      phone_number: formRegisterData.phone,
+      gender: formRegisterData.gender,
+      country: formRegisterData.country,
+      profile: formRegisterData.profile,
+      password: formRegisterData.password,
+    };
+
+    const response = await useApiBase(
+      process.env.NEXT_PUBLIC_BASEURL_AUTH + "/api/user/register/",
+      {
+        method: "POST",
+        body: JSON.stringify(payload),
+      }
+    );
+
+    if (response != null) {
+      window.location.href = "/auth/login";
+      return;
+    }
+    return;
+  }
 
   return (
     <div className="md:flex justify-center items-center bg-black pt-36">
@@ -269,7 +268,7 @@ export default function RegisterPage() {
               type="submit"
               onClick={async (e) => {
                 e.preventDefault();
-                await register(formRegister);
+                await Register(formRegister);
               }}
               className="btn w-full text-black bg-amber-400 hover:bg-amber-500 text-2xl"
             >

@@ -22,7 +22,7 @@ export default function Cart({
 }) {
   // const [open, setOpen] = useState(false);
 
-  async function removeItem(id: number, size: string, color: string) {
+  async function RemoveItem(id: number, size: string, color: string) {
     const res = await useApiBase(
       process.env.NEXT_PUBLIC_BASEURL_AUTH + "/api/user/cart/",
       {
@@ -134,7 +134,7 @@ export default function Cart({
                                         type="button"
                                         onClick={async (e) => {
                                           e.preventDefault();
-                                          await removeItem(
+                                          await RemoveItem(
                                             product.product.product_id,
                                             product.size,
                                             product.color

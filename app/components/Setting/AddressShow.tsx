@@ -33,9 +33,9 @@ export default function AddressShow({ address }: { address: Array<Address> }) {
             </Button>
           </div>
         </div>
-        {address?.map((addressItem) => {
+        {address?.map((addressItem, index) => {
           return (
-            <div className="flex">
+            <div className="flex" key={index}>
               <div className="flex-1 py-5 pl-5 overflow-hidden ">
                 <ul>
                   <li className="text-xs text-white uppercase ">

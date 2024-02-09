@@ -5,9 +5,7 @@ import { useState } from "react";
 import useApiBase from "@/lib/useApi";
 
 export default function verifyEmail({ params }: { params: { uid: string } }) {
-  const [uidData, setUidData] = useState("");
-
-  const verifyButton = async () => {
+  const VerifyButton = async () => {
     const decode = await decodeURIComponent(params.uid);
     console.log("original", params.uid);
     console.log("decode", decode);
@@ -37,7 +35,7 @@ export default function verifyEmail({ params }: { params: { uid: string } }) {
           color="warning"
           onClick={async (e) => {
             e.preventDefault();
-            await verifyButton();
+            await VerifyButton();
           }}
         >
           <p className="text-black font-bold text-md">Verify</p>

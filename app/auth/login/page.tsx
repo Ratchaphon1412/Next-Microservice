@@ -24,7 +24,7 @@ export default function Login() {
   });
   const dispatch = useDispatch<AppDispatch>();
 
-  const onClickLogIn = async () => {
+  const OnClickLogIn = async () => {
     const response = await useApiBase<JSON | null>(
       process.env.NEXT_PUBLIC_BASEURL_AUTH + "/api/user/token/",
       {
@@ -36,25 +36,24 @@ export default function Login() {
     if (response != null) {
       dispatch(logIn(response));
       // authentication
+    }
+    const auth = await useApiBase<ResponseLogin>(
+      process.env.NEXT_PUBLIC_BASEURL_AUTH + "/api/user/profile/",
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    );
+    console.log(auth?.groups[0].name);
+    if (auth != null) {
+      dispatch(authSuccess(auth));
 
-      const auth = await useApiBase<ResponseLogin>(
-        process.env.NEXT_PUBLIC_BASEURL_AUTH + "/api/user/profile/",
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-          },
-        }
-      );
-      console.log(auth?.groups[0].name);
-      if (auth != null) {
-        dispatch(authSuccess(auth));
-
-        if (auth.groups[0].name === "admin") {
-          window.location.href = "/admin";
-          return;
-        }
-
+      if (auth.groups[0].name === "admin") {
+        window.location.href = "/admin";
+        return;
+      } else if (auth.groups[0].name === "user") {
         window.location.href = "/store";
         return;
       }
@@ -151,7 +150,7 @@ export default function Login() {
             <button
               onClick={async (e) => {
                 e.preventDefault();
-                await onClickLogIn();
+                await OnClickLogIn();
               }}
               type="button"
               className="btn btn-info w-full text-xl hover:bg-amber-600 bg-amber-400 font-semibold text-white shadow-sm transition-all duration-150  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"

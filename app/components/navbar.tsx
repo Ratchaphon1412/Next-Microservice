@@ -37,7 +37,7 @@ export default function Component() {
   const userProfile = useAppSelector((state) => state.authReducer.user);
   const dispatch = useDispatch<AppDispatch>();
 
-  async function getCart() {
+  async function GetCart() {
     const res = await useApiBase<CartFetch>(
       process.env.NEXT_PUBLIC_BASEURL_AUTH + "/api/user/cart/",
       {
@@ -73,7 +73,7 @@ export default function Component() {
   };
 
   const toggleCartCallback = async () => {
-    const check = await getCart();
+    const check = await GetCart();
     if (check == null) {
       return;
     }

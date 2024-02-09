@@ -6,7 +6,7 @@ import useApiBase from "@/lib/useApi";
 export default function ForgetPage() {
   const [useEmail, setUseEmail] = useState("");
 
-  async function handleSubmit() {
+  async function HandleSubmit() {
     const response = await useApiBase<JSON | null>(
       process.env.NEXT_PUBLIC_BASEURL_AUTH + `/api/user/reverify/`,
       {
@@ -58,7 +58,7 @@ export default function ForgetPage() {
               type="submit"
               onClick={async (e) => {
                 e.preventDefault();
-                await handleSubmit();
+                await HandleSubmit();
               }}
               className="btn hover:bg-amber-600 w-full text-black bg-amber-400 text-3xl"
             >

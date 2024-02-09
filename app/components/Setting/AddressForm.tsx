@@ -11,7 +11,7 @@ export function AddressForm() {
   const [zip_code, setZip_Code] = useState("");
   const [phone, setPhone] = useState("");
 
-  async function upDateAddress() {
+  async function UpDateAddress() {
     const res = await useApiBase(
       process.env.NEXT_PUBLIC_BASEURL_AUTH + "/api/user/address/",
       {
@@ -159,7 +159,7 @@ export function AddressForm() {
               color="warning"
               onClick={async (e) => {
                 e.preventDefault();
-                await upDateAddress();
+                await UpDateAddress();
               }}
             >
               {" "}
