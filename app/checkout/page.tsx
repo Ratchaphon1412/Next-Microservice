@@ -142,7 +142,7 @@ export default function Checkout() {
   useEffect(() => {
     GetCart();
     LoadAddressData();
-  }, []);
+  });
 
   return (
     <div className="bg-white">

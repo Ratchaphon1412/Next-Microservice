@@ -49,7 +49,7 @@ const Settings = () => {
   useEffect(() => {
     GetProfile();
     LoadAddressData();
-  }, []);
+  });
   return (
     <>
       <div className="min-h-screen mx-16 py-32">

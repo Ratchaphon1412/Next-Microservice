@@ -1,3 +1,4 @@
+import Image from "next/image";
 export default function Shipping() {
   return (
     <div className="relative">
@@ -13,7 +14,7 @@ export default function Shipping() {
         className="   flex cursor-pointer select-none rounded-lg p-4"
         htmlFor="radio_1"
       >
-        <img
+        <Image
           className="w-14 object-contain"
           src="https://yt3.googleusercontent.com/dSMIZcBg7A2BD5D5GEJpLrsSFjL43VOQyBxIhRaUPA7SxaDaNlrAScUFyakcBKoUYnssTgyoJQ=s900-c-k-c0x00ffffff-no-rj"
           alt=""

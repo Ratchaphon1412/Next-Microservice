@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Item({
   name,
   color,
@@ -15,7 +17,7 @@ export default function Item({
 }) {
   return (
     <div className="flex flex-col  rounded-lg  sm:flex-row">
-      <img
+      <Image
         className="m-2 h-24 w-28 rounded-md border object-cover object-center"
         src={image}
         alt=""
