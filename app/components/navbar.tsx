@@ -586,7 +586,7 @@ export default function Component() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/shop"
                   className="block py-2 px-3 rounded  text-gray-400 hover:bg-gray-700 hover:text-white"
                 >
                   Shop

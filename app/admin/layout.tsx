@@ -1,8 +1,4 @@
 "use client";
-// import "./globals.css";
-// import "global.css";
-import "./data-tables-css.css";
-import "./satoshi.css";
 import { useState, useEffect } from "react";
 // import Loader from "@/components/common/Loader";
 import Loader from "../components/common/Loader";
@@ -24,38 +20,32 @@ export default function RootLayout({
   }, []);
 
   return (
-        <div className="dark:bg-boxdark-2 dark:text-bodydark bg-slate-100">
-          {loading ? (
-            <Loader />
-          ) : (
-            <div className="flex h-screen overflow-hidden">
-              {/* <!-- ===== Sidebar Start ===== --> */}
-              <Sidebar
-                sidebarOpen={sidebarOpen}
-                setSidebarOpen={setSidebarOpen}
-              />
-              {/* <!-- ===== Sidebar End ===== --> */}
+    <div className="dark:bg-boxdark-2 dark:text-bodydark bg-slate-100">
+      {loading ? (
+        <Loader />
+      ) : (
+        <div className="flex h-screen overflow-hidden">
+          {/* <!-- ===== Sidebar Start ===== --> */}
+          <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+          {/* <!-- ===== Sidebar End ===== --> */}
 
-              {/* <!-- ===== Content Area Start ===== --> */}
-              <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
-                {/* <!-- ===== Header Start ===== --> */}
-                <Header
-                  sidebarOpen={sidebarOpen}
-                  setSidebarOpen={setSidebarOpen}
-                />
-                {/* <!-- ===== Header End ===== --> */}
+          {/* <!-- ===== Content Area Start ===== --> */}
+          <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden mt-24">
+            {/* <!-- ===== Header Start ===== --> */}
 
-                {/* <!-- ===== Main Content Start ===== --> */}
-                <main>
-                  <div className="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
-                    {children}
-                  </div>
-                </main>
-                {/* <!-- ===== Main Content End ===== --> */}
+            {/* <!-- ===== Header End ===== --> */}
+
+            {/* <!-- ===== Main Content Start ===== --> */}
+            <main>
+              <div className="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
+                {children}
               </div>
-              {/* <!-- ===== Content Area End ===== --> */}
-            </div>
-          )}
+            </main>
+            {/* <!-- ===== Main Content End ===== --> */}
+          </div>
+          {/* <!-- ===== Content Area End ===== --> */}
         </div>
+      )}
+    </div>
   );
 }
