@@ -16,10 +16,23 @@ export default function AddressShow({ address }: { address: Array<Address> }) {
   return (
     <>
       <div className="mt-5 bg-back shadow cursor-pointer rounded-xl w-1/2">
-        <label htmlFor="" className="text-white text-2xl">
-          Address
-        </label>
-
+        <div className="flex justify-between">
+          <label htmlFor="" className="text-white text-2xl">
+            Address
+          </label>
+          <div className="flex justify-end gap-2">
+            <Button
+              color="warning"
+              onClick={async (e) => {
+                e.preventDefault();
+                handleCreate();
+              }}
+            >
+              {" "}
+              Create{" "}
+            </Button>
+          </div>
+        </div>
         {address?.map((addressItem) => {
           return (
             <div className="flex">
@@ -62,18 +75,6 @@ export default function AddressShow({ address }: { address: Array<Address> }) {
             </div>
           );
         })}
-        <div className="flex justify-end gap-2">
-          <Button
-            color="warning"
-            onClick={async (e) => {
-              e.preventDefault();
-              handleCreate();
-            }}
-          >
-            {" "}
-            Create{" "}
-          </Button>
-        </div>
       </div>
 
       {toggleCreate && <AddressForm />}

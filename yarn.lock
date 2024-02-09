@@ -4741,6 +4741,11 @@ react-jvectormap@^0.0.16:
     jvectormap-next "^3.0.0"
     prop-types "^15.6.0"
 
+react-load-script@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/react-load-script/-/react-load-script-0.0.6.tgz#db6851236aaa25bb622677a2eb51dad4f8d2c258"
+  integrity sha512-aRGxDGP9VoLxcsaYvKWIW+LRrMOzz2eEcubTS4NvQPPugjk2VvMhow0wWTkSl7RxookomD1MwcP4l5UStg5ShQ==
+
 react-markdown@^9.0.0:
   version "9.0.1"
   resolved "https://registry.yarnpkg.com/react-markdown/-/react-markdown-9.0.1.tgz#c05ddbff67fd3b3f839f8c648e6fb35d022397d1"
@@ -5815,6 +5820,11 @@ uri-js@^4.2.2:
   integrity sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==
   dependencies:
     punycode "^2.1.0"
+
+use-omise@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/use-omise/-/use-omise-1.2.1.tgz#dd3c3f5d323ab5f797f91e02fbbfb6ef47b4039d"
+  integrity sha512-/HUSJSPFJW8I6v01ip6cmI4/Y4qcY0WM7wwAOLVZd/LyJaA/iB+r9gTdB/3PKhqNU8RhVB6C0E+Sf7mSw6BQSQ==
 
 use-sync-external-store@^1.0.0:
   version "1.2.0"

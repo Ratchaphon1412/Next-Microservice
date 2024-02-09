@@ -35,7 +35,7 @@ export function AddressForm() {
 
   return (
     //
-    <div className="rounded-lg border border-stroke w-1/2 bg-black shadow-default dark:border-strokedark dark:bg-boxdark">
+    <div className="rounded-lg border border-stroke w-1/2  shadow-default ">
       <div className="border-b border-stroke py-4 px-7 dark:border-strokedark">
         <h3 className="font-medium text-white dark:text-white">
           Address Information

@@ -11,6 +11,10 @@ import useApiBase from "@/lib/useApi";
 
 import { useAppSelector } from "@/redux/store";
 
+interface ResponseLogin {
+  [key: string]: Array<string> | string | number | boolean | any;
+}
+
 export default function Login() {
   // const username1 = useAppSelector((state) => state.authReducer.value.username);
   const token = useAppSelector((state) => state.authReducer.acessToken);
@@ -33,7 +37,7 @@ export default function Login() {
       dispatch(logIn(response));
       // authentication
 
-      const auth = await useApiBase<JSON | null>(
+      const auth = await useApiBase<ResponseLogin>(
         process.env.NEXT_PUBLIC_BASEURL_AUTH + "/api/user/profile/",
         {
           method: "GET",
@@ -42,10 +46,17 @@ export default function Login() {
           },
         }
       );
-      console.log(auth);
+      console.log(auth?.groups[0].name);
       if (auth != null) {
         dispatch(authSuccess(auth));
+
+        if (auth.groups[0].name === "admin") {
+          window.location.href = "/admin";
+          return;
+        }
+
         window.location.href = "/store";
+        return;
       }
     }
 

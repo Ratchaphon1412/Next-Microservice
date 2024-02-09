@@ -92,6 +92,7 @@ export default async function useApiBase<T>(
           console.log("dataAgain", dataAgain);
           return dataAgain as T;
         } else {
+          window.location.href = "/auth/login";
           return null as T;
         }
       });

@@ -10,6 +10,7 @@ export interface AuthState {
   isAuth: boolean;
   user: any;
   address: Array<Address>;
+  role: string;
 }
 
 const initialState: AuthState = {
@@ -18,6 +19,7 @@ const initialState: AuthState = {
   isAuth: false,
   user: null,
   address: [],
+  role: "user",
 };
 
 export const auth = createSlice({
@@ -33,12 +35,14 @@ export const auth = createSlice({
       console.log("action", action);
       state.acessToken = action.payload.access;
       state.refreshToken = action.payload.refresh;
+
       localStorage.setItem("accessToken", action.payload.access);
       localStorage.setItem("refreshToken", action.payload.refresh);
     },
     authSuccess: (state, action: PayloadAction<any>) => {
       state.isAuth = true;
       state.user = action.payload;
+      state.role = action.payload.groups[0].name;
     },
     loadAddress: (state, action: PayloadAction<Array<any>>) => {
       state.address = action.payload;
